@@ -8,7 +8,7 @@
 > *Miku bot es el mejor*
 ![Menu Principal](https://qu.ax/eJBzU.jpg)
 
-## **`MobPysho MD`**
+## **`THE MIKU BOT`**
 > Es un trabajo en equipo creado por 💫
 
 [Bajo-bots 🚀](https://Wa.me/573162402768)
