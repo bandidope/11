@@ -11,13 +11,9 @@
 ## **`THE MIKU BOT`**
 > Es un trabajo en equipo creado por 💫
 
-[Bajo-bots 🚀](https://Wa.me/573162402768)
-
-
-[leiner 👑](https://Wa.me/573216372270)
-
-
 [Adrian](https://Wa.me/595976126756)
+
+[Bajo-bots 🚀](https://Wa.me/573162402768)
 
 
 Bot en reconstrucción y en su pronta resurrección xd
