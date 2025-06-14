@@ -5,7 +5,7 @@
 
 <h1>MobPysho bot</h1>
 
-> *ᴍᴏʙ ᴘʏsʜᴏ ʙᴏᴛ Ai*
+> *Miku bot es el mejor*
 ![Menu Principal](https://qu.ax/eJBzU.jpg)
 
 ## **`MobPysho MD`**
