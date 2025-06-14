@@ -6,7 +6,7 @@
 <h1>THEMIKU BOT</h1>
 
 > *Miku bot es el mejor*
-![Menu Principal](https://qu.ax/eJBzU.jpg)
+![Menu Principal](https://qu.ax/ARhkT.jpg)
 
 ## **`THE MIKU BOT`**
 > Es un trabajo en equipo creado por 💫
