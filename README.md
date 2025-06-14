@@ -3,7 +3,7 @@
 </h1>
 
 
-<h1>MobPysho bot</h1>
+<h1>THEMIKU BOT</h1>
 
 > *Miku bot es el mejor*
 ![Menu Principal](https://qu.ax/eJBzU.jpg)
