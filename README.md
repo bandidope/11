@@ -6,7 +6,7 @@
 <h1>MobPysho bot</h1>
 
 > *ᴍᴏʙ ᴘʏsʜᴏ ʙᴏᴛ Ai*
-![Menu Principal](https://files.catbox.moe/3mia0l.jpg)
+![Menu Principal]()
 
 ## **`MobPysho MD`**
 > Es un trabajo en equipo creado por 💫
@@ -18,4 +18,6 @@
 
 
 [Adrian](https://Wa.me/595976126756)
+
+
 Bot en reconstrucción y en su pronta resurrección xd
