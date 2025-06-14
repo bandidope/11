@@ -6,7 +6,7 @@
 <h1>MobPysho bot</h1>
 
 > *ᴍᴏʙ ᴘʏsʜᴏ ʙᴏᴛ Ai*
-![Menu Principal]()
+![Menu Principal](https://qu.ax/eJBzU.jpg)
 
 ## **`MobPysho MD`**
 > Es un trabajo en equipo creado por 💫
