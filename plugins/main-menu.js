@@ -1,3 +1,5 @@
+ 
+import { xpRange} from '../lib/levelling.js'
 
 const clockString = ms => {
   const h = Math.floor(ms / 3600000)
@@ -23,15 +25,20 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
     const user = global.db.data.users[m.sender] || { level: 1, exp: 0, limit: 5};
     const { exp, level, limit} = user;
     const { min, xp} = xpRange(level, global.multiplier || 1);
-    const totalreg = Object.keys(global.db.data.users).length;
-    const mode = global.opts.self? 'Privado 🔒': 'Público 🌐';
+    const totalreg = Object.keys(global.db?.data?.users || {}).length;
+    const mode = global.opts?.self? 'Privado 🔒': 'Público 🌐';
     const muptime = clockString(process.uptime() * 1000);
-    const name = await conn.getName(m.sender);
+    const name = await conn.getName(m.sender) || "Usuario Desconocido";
+
+    // Verifica que global.plugins esté definido
+    if (!global.plugins) {
+      return conn.reply(m.chat, '❌ Error: No se han cargado los plugins correctamente.', m);
+}
 
     let categorizedCommands = {}; // Diccionario para agrupar comandos dinámicamente
 
     Object.values(global.plugins)
-.filter(p =>!p.disabled)
+.filter(p => p?.help &&!p.disabled)
 .forEach(p => {
         let category = p.tags?.[0] || "Otros"; // Si no tiene categoría, va a "Otros"
         categorizedCommands[category] = categorizedCommands[category] || [];
@@ -62,7 +69,7 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
 
 } catch (e) {
     console.error(e);
-    conn.reply(m.chat, '❌ Error al generar el menú.', m);
+    conn.reply(m.chat, '❌ Error al generar el menú. Inténtalo nuevamente.', m);
 }
 };
 
