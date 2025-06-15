@@ -8,16 +8,18 @@ const clockString = ms => {
   return [h, m, s].map(v => v.toString().padStart(2, '0')).join(':')
 }
 
+const imagen = "https://d.uguu.se/RuUuoGPE.jpg";
+
 const menuHeader = `
 ╔═══════════════════╗
-║   🤖 *Barboza Core Menu* 🤖
+║   🤖 *The - Miku Bot Menu* 🤖
 ╚═══════════════════╝
 `;
 
 const menuFooter = `
 ━━━━━━━━━━━━━━━━━━━━━
 💡 Usa los comandos con el prefijo correspondiente.
-🛠️ Desarrollado por: @Barboza
+🛠️ Desarrollado por: @Miku-Team
 `;
 
 let handler = async (m, { conn, usedPrefix: _p}) => {
@@ -30,7 +32,6 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
     const muptime = clockString(process.uptime() * 1000);
     const name = await conn.getName(m.sender) || "Usuario Desconocido";
 
-    // Verifica que global.plugins esté definido
     if (!global.plugins) {
       return conn.reply(m.chat, '❌ Error: No se han cargado los plugins correctamente.', m);
 }
@@ -67,7 +68,7 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
 });
 
     let commandsText = Object.entries(categorizedCommands)
-.filter(([_, cmds]) => cmds.length> 0) // Filtra categorías sin comandos
+.filter(([_, cmds]) => cmds.length> 0)
 .map(([category, cmds]) => `📂 *${category}*\n${cmds.map(cmd => `🔸 ${_p}${cmd}`).join('\n')}`)
 .join('\n\n');
 
@@ -85,7 +86,8 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
     const menu = `${menuHeader}${infoBlock}\n${commandsText}\n${menuFooter}`.trim();
 
     await conn.sendMessage(m.chat, {
-      text: menu,
+      image: { url: imagen},
+      caption: menu,
       mentions: [m.sender]
 }, { quoted: m});
 
