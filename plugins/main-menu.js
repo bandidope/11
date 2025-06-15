@@ -1,5 +1,6 @@
 
 import { xpRange} from '../lib/levelling.js'
+
 const clockString = ms => {
   const h = Math.floor(ms / 3600000)
   const m = Math.floor(ms / 60000) % 60
@@ -23,18 +24,38 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
   try {
     const user = global.db.data.users[m.sender] || { level: 1, exp: 0, limit: 5};
     const { exp, level, limit} = user;
-    const { min, xp, max} = xpRange(level, global.multiplier || 1);
+    const { min, xp} = xpRange(level, global.multiplier || 1);
     const totalreg = Object.keys(global.db.data.users).length;
     const mode = global.opts.self? 'Privado 🔒': 'Público 🌐';
     const muptime = clockString(process.uptime() * 1000);
     const name = await conn.getName(m.sender);
 
-    const commands = Object.values(global.plugins)
-.filter(p =>!p.disabled)
-.flatMap(p => (Array.isArray(p.help)? p.help: [p.help]))
-.filter(Boolean)
-.map(cmd => `🔸 ${_p}${cmd}`)
-.join('\n');
+    const categorizedCommands = {
+      "🎭 Anime": ["animeinfo", "mangainfo", "wallpaper"],
+      "ℹ️ Info": ["botinfo", "version", "ping"],
+      "🔎 Search": ["google", "wikipedia", "youtube"],
+      "🎮 Game": ["casino", "trivia", "blackjack"],
+      "🤖 SubBots": ["subbot1", "subbot2"],
+      "🌀 RPG": ["profile", "inventory", "adventure"],
+      "📝 Registro": ["registrar", "verificar"],
+      "🎨 Sticker": ["sticker", "stickeranime"],
+      "🖼️ Imagen": ["randomimage", "dogpic"],
+      "🖌️ Logo": ["logomaker", "textlogo"],
+      "⚙️ Configuración": ["activar", "desactivar"],
+      "💎 Premium": ["vip", "premiuminfo"],
+      "📥 Descargas": ["download", "mp3", "mp4"],
+      "🛠️ Herramientas": ["calculadora", "traductor"],
+      "🎭 Diversión": ["chiste", "memes"],
+      "🔞 NSFW": ["hentai", "rule34"],
+      "📀 Base de Datos": ["backup", "restore"],
+      "🔊 Audios": ["audio1", "audio2"],
+      "🗝️ Avanzado": ["devmode", "debug"],
+      "🔥 Free Fire": ["ffstats", "ffloadout"]
+};
+
+    let commandsText = Object.entries(categorizedCommands)
+.map(([category, cmds]) => `📂 *${category}*\n${cmds.map(cmd => `🔸 ${_p}${cmd}`).join('\n')}`)
+.join('\n\n');
 
     const infoBlock = `
 👤 Usuario: ${name}
@@ -47,7 +68,7 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
 ━━━━━━━━━━━━━━━━━━━━━
 `;
 
-    const menu = `${menuHeader}${infoBlock}\n📂 *Comandos disponibles:*\n${commands}\n${menuFooter}`.trim();
+    const menu = `${menuHeader}${infoBlock}\n${commandsText}\n${menuFooter}`.trim();
 
     await conn.sendMessage(m.chat, {
       text: menu,
@@ -60,7 +81,5 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
 }
 };
 
-handler.help = ['menu', 'help'];
-handler.tags = ['main'];
 handler.command = ['menu', 'help', 'menú'];
 export default handler;
