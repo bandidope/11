@@ -70,7 +70,6 @@ global.photoSity = [catalogo]
 global.gp1 = ''
 global.comunidad1 = ''
 global.channel = ''
-global.channel2 = '
 global.md = ''
 global.correo = ''
 global.cn ='';
