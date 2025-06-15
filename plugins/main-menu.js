@@ -1,47 +1,14 @@
+
 import { xpRange} from '../lib/levelling.js'
 
-const textCyberpunk = (text) => {
-  const charset = {
-    a: 'ᴀ', b: 'ʙ', c: 'ᴄ', d: 'ᴅ', e: 'ᴇ', f: 'ꜰ', g: 'ɢ',
-    h: 'ʜ', i: 'ɪ', j: 'ᴊ', k: 'ᴋ', l: 'ʟ', m: 'ᴍ', n: 'ɴ',
-    o: 'ᴏ', p: 'ᴘ', q: 'ǫ', r: 'ʀ', s: 'ꜱ', t: 'ᴛ', u: 'ᴜ',
-    v: 'ᴠ', w: 'ᴡ', x: 'x', y: 'ʏ', z: 'ᴢ'
-}
-  return text.toLowerCase().split('').map(c => charset[c] || c).join('')
-}
+const generateMenu = (name, level, exp, maxexp, totalreg, mode, muptime, _p, help) => {
+  let title = `💠 *MENÚ PRINCIPAL* 💠\n📌 Usuario: ${name}\n📊 Nivel: ${level}\n⚡ EXP: ${exp} / ${maxexp}\n👥 Usuarios Registrados: ${totalreg}\n🔰 Modo: ${mode}\n⏳ Tiempo activo: ${muptime}\n\n📜 *LISTA DE COMANDOS DISPONIBLES:* 📜\n`
 
-let tags = {
-  'main': textCyberpunk('sistema'),
-  'group': textCyberpunk('grupos'),
-  'serbot': textCyberpunk('sub bots'),
-}
+  let commands = help
+.map(menu => `🛠 *${menu.tags[0].toUpperCase()}*\n` + menu.help.map(cmd => `🔹 ${_p + cmd}`).join('\n'))
+.join('\n\n')
 
-const defaultMenu = {
-  before: `⚠️ 𝗔𝗟𝗘𝗥𝗧𝗔 𝗗𝗘 𝗦𝗜𝗦𝗧𝗘𝗠𝗔 ⚠️
-┃ 💙 𝙸𝙽𝙸𝙲𝙸𝙰𝙽𝙳𝙾: 𝙱𝙻𝙲-𝚂𝚈𝚂.exe
-┃ 💙 𝚄𝚂𝚄𝗔𝗥𝗜𝗢: %name
-┃ 💙 𝙼𝙾𝙳𝙾: %mode
-┃ 💙 𝙴𝚂𝚃𝙰𝙳𝙾: 𝗢𝗡𝗟𝗜𝗡𝗘 👻
-╚═⫷🍭 𝗔𝗦𝗨𝗡𝗔_𝗕𝗢𝗧-𝗠𝗗 🍭⫸═╝
-
-╭─[𝗘𝗦𝗧𝗔𝗗𝗢 𝗗𝗘 𝗨𝗦𝗨𝗔𝗥𝗜𝗢]─╮
-│ 📊 𝗡𝗜𝗩𝗘𝗟: %level
-│ ⚡ 𝗘𝗫𝗣: %exp / %maxexp
-│ 🧮 𝗨𝗦𝗨𝗔𝗥𝗜𝗢𝗦: %totalreg
-│ ⏱ 𝗧𝗜𝗘𝗠𝗣𝗢 𝗔𝗖𝗧𝗜𝗩𝗢: %muptime
-╰──────────────────╯
-
-🧬 *𝗠𝗢𝗗𝗢 𝗠𝗘𝗡𝗨 𝗔𝗖𝗧𝗜𝗩𝗔𝗗𝗢*
-✦ Elige un comando para ejecutar protocolo.
-✦ creador: *FedelanYT 👑*
-
-%readmore
-`.trimStart(),
-
-  header: '\n╭─〔 🍭 %category 〕─╮',
-  body: '―͟͞💙 %cmd\n',
-  footer: '╰────────────────╯',
-  after: '\n⌬ 𝗖𝗬𝗕𝗘𝗥 𝗠𝗘𝗡𝗨 ☠️ - Sistema ejecutado con éxito.'
+  return `${title}\n${commands}\n\n🚀 Usa los comandos para interactuar con el bot.`
 }
 
 let handler = async (m, { conn, usedPrefix: _p}) => {
@@ -58,47 +25,16 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
       tags: Array.isArray(p.tags)? p.tags: [p.tags],
 }))
 
-    for (let plugin of help) {
-      for (let t of plugin.tags) {
-        if (!(t in tags)) tags[t] = textCyberpunk(t)
-}
-}
+    let menuText = generateMenu(name, level, exp - min, xp, totalreg, mode, muptime, _p, help)
 
-    const { before, header, body, footer, after} = defaultMenu
-
-    let text = [
-      before,
-...Object.keys(tags).map(tag => {
-        const cmds = help
-.filter(menu => menu.tags.includes(tag))
-.map(menu => menu.help.map(cmd => body.replace(/%cmd/g, _p + cmd)).join('\n'))
-.join('\n')
-        return `${header.replace(/%category/g, tags[tag])}\n${cmds}\n${footer}`
-}),
-      after
-    ].join('\n').replace(/%(\w+)/g, (_, key) => ({
-      name,
-      level,
-      exp: exp - min,
-      maxexp: xp,
-      totalreg,
-      mode,
-      muptime,
-      readmore: String.fromCharCode(8206).repeat(4001)
-}[key] || ''))
-
-    await conn.sendMessage(m.chat, {
-      text: text,
-      mentions: [m.sender]
-}, { quoted: m})
-
+    await conn.sendMessage(m.chat, { text: menuText, mentions: [m.sender]}, { quoted: m})
 } catch (e) {
     console.error(e)
-    conn.reply(m.chat, '❎ Error al generar el menú del sistema.', m)
+    conn.reply(m.chat, '❎ Hubo un error al generar el menú.', m)
 }
 }
 
-handler.command = ['menu', 'menú']
+handler.command = ['menu', 'help']
 export default handler
 
 function clockString(ms) {
