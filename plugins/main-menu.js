@@ -1,4 +1,4 @@
- 
+
 import { xpRange} from '../lib/levelling.js'
 
 const clockString = ms => {
@@ -35,18 +35,40 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
       return conn.reply(m.chat, '❌ Error: No se han cargado los plugins correctamente.', m);
 }
 
-    let categorizedCommands = {}; // Diccionario para agrupar comandos dinámicamente
+    let categorizedCommands = {
+      "🎭 Anime": [],
+      "ℹ️ Info": [],
+      "🔎 Search": [],
+      "🎮 Game": [],
+      "🤖 SubBots": [],
+      "🌀 RPG": [],
+      "📝 Registro": [],
+      "🎨 Sticker": [],
+      "🖼️ Imagen": [],
+      "🖌️ Logo": [],
+      "⚙️ Configuración": [],
+      "💎 Premium": [],
+      "📥 Descargas": [],
+      "🛠️ Herramientas": [],
+      "🎭 Diversión": [],
+      "🔞 NSFW": [],
+      "📀 Base de Datos": [],
+      "🔊 Audios": [],
+      "🗝️ Avanzado": [],
+      "🔥 Free Fire": [],
+      "Otros": [] // Para comandos sin categoría específica
+};
 
     Object.values(global.plugins)
 .filter(p => p?.help &&!p.disabled)
 .forEach(p => {
-        let category = p.tags?.[0] || "Otros"; // Si no tiene categoría, va a "Otros"
-        categorizedCommands[category] = categorizedCommands[category] || [];
+        let category = Object.keys(categorizedCommands).find(tag => p.tags?.includes(tag.replace(/[^a-zA-Z]/g, "").toLowerCase())) || "Otros";
         categorizedCommands[category].push(...(Array.isArray(p.help)? p.help: [p.help]));
 });
 
     let commandsText = Object.entries(categorizedCommands)
-.map(([category, cmds]) => `📂 *${category.toUpperCase()}*\n${cmds.map(cmd => `🔸 ${_p}${cmd}`).join('\n')}`)
+.filter(([_, cmds]) => cmds.length> 0) // Filtra categorías sin comandos
+.map(([category, cmds]) => `📂 *${category}*\n${cmds.map(cmd => `🔸 ${_p}${cmd}`).join('\n')}`)
 .join('\n\n');
 
     const infoBlock = `
