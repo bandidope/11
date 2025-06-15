@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 
 export async function before(m, { conn }) {
-let name = `sіgᥙᥱ ᥱᥣ ᥴᥲᥒᥲᥣ | ᑲ᥆𝗍 ᑲᥲrᑲ᥆zᥲ`
+let name = `💮𝕤𝕚𝕘𝕦𝕖 𝕖𝕝 𝕔𝕒𝕟𝕒𝕝 𝕕𝕖 𝕞𝕚𝕜𝕦 𝕓𝕠𝕥 💮`
 let imagenes = ["https://d.uguu.se/RuUuoGPE.jpg",
 "https://d.uguu.se/RuUuoGPE.jpg",
 "https://d.uguu.se/RuUuoGPE.jpg",
