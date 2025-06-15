@@ -1,6 +1,4 @@
 
-import { xpRange} from '../lib/levelling.js'
-
 const clockString = ms => {
   const h = Math.floor(ms / 3600000)
   const m = Math.floor(ms / 60000) % 60
@@ -30,31 +28,18 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
     const muptime = clockString(process.uptime() * 1000);
     const name = await conn.getName(m.sender);
 
-    const categorizedCommands = {
-      "🎭 Anime": ["animeinfo", "mangainfo", "wallpaper"],
-      "ℹ️ Info": ["botinfo", "version", "ping"],
-      "🔎 Search": ["google", "wikipedia", "youtube"],
-      "🎮 Game": ["casino", "trivia", "blackjack"],
-      "🤖 SubBots": ["subbot1", "subbot2"],
-      "🌀 RPG": ["profile", "inventory", "adventure"],
-      "📝 Registro": ["registrar", "verificar"],
-      "🎨 Sticker": ["sticker", "stickeranime"],
-      "🖼️ Imagen": ["randomimage", "dogpic"],
-      "🖌️ Logo": ["logomaker", "textlogo"],
-      "⚙️ Configuración": ["activar", "desactivar"],
-      "💎 Premium": ["vip", "premiuminfo"],
-      "📥 Descargas": ["download", "mp3", "mp4"],
-      "🛠️ Herramientas": ["calculadora", "traductor"],
-      "🎭 Diversión": ["chiste", "memes"],
-      "🔞 NSFW": ["hentai", "rule34"],
-      "📀 Base de Datos": ["backup", "restore"],
-      "🔊 Audios": ["audio1", "audio2"],
-      "🗝️ Avanzado": ["devmode", "debug"],
-      "🔥 Free Fire": ["ffstats", "ffloadout"]
-};
+    let categorizedCommands = {}; // Diccionario para agrupar comandos dinámicamente
+
+    Object.values(global.plugins)
+.filter(p =>!p.disabled)
+.forEach(p => {
+        let category = p.tags?.[0] || "Otros"; // Si no tiene categoría, va a "Otros"
+        categorizedCommands[category] = categorizedCommands[category] || [];
+        categorizedCommands[category].push(...(Array.isArray(p.help)? p.help: [p.help]));
+});
 
     let commandsText = Object.entries(categorizedCommands)
-.map(([category, cmds]) => `📂 *${category}*\n${cmds.map(cmd => `🔸 ${_p}${cmd}`).join('\n')}`)
+.map(([category, cmds]) => `📂 *${category.toUpperCase()}*\n${cmds.map(cmd => `🔸 ${_p}${cmd}`).join('\n')}`)
 .join('\n\n');
 
     const infoBlock = `
