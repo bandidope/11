@@ -79,7 +79,7 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
           const plugin = Object.values(global.plugins).find(p => p.help?.includes(cmd));
           const premium = plugin?.premium? '💎': '';
           const limited = plugin?.limit? '🌀': '';
-          return `│ 🔹 ${_p}${cmd} ${premium}${limited}`.trim();
+          return `│ 🔹 _${_p}${cmd}_ ${premium}${limited}`.trim();
 }).join('\n');
         return `╭─「 ${title} 」\n${entries}\n${sectionDivider}`;
 }).join('\n\n');
