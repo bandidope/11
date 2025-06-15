@@ -8,7 +8,7 @@ const clockString = ms => {
   return [h, m, s].map(v => v.toString().padStart(2, '0')).join(':')
 }
 
-const imagen = "https://d.uguu.se/RuUuoGPE.jpg";
+const imagen = "https://d.uguu.se/RuUuoGPE.jpg"; // Imagen del menú
 
 const menuHeader = `
 ╔═══════════════════╗
@@ -20,6 +20,11 @@ const menuFooter = `
 ━━━━━━━━━━━━━━━━━━━━━
 💡 Usa los comandos con el prefijo correspondiente.
 🛠️ Desarrollado por: @Miku-Team
+━━━━━━━━━━━━━━━━━━━━━
+`;
+
+const sectionDivider = `
+────────────────────────────
 `;
 
 let handler = async (m, { conn, usedPrefix: _p}) => {
@@ -69,7 +74,7 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
 
     let commandsText = Object.entries(categorizedCommands)
 .filter(([_, cmds]) => cmds.length> 0)
-.map(([category, cmds]) => `📂 *${category}*\n${cmds.map(cmd => `🔸 ${_p}${cmd}`).join('\n')}`)
+.map(([category, cmds]) => `${sectionDivider}\n📂 *${category}*\n${cmds.map(cmd => `🔹 ${_p}${cmd}`).join('\n')}\n${sectionDivider}`)
 .join('\n\n');
 
     const infoBlock = `
