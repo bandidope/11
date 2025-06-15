@@ -1,5 +1,5 @@
-//© código creado por Deylin 
-//https://github.com/deylinqff
+//© código creado por Bajo Bots 
+//
 //➤  no quites créditos 
 
 import { WAMessageStubType } from '@whiskeysockets/baileys'
@@ -7,7 +7,7 @@ import fetch from 'node-fetch'
 
 export async function before(m, { conn, participants, groupMetadata }) {
   if (!m.messageStubType || !m.isGroup) return !0;
-  if (m.chat !== '120363402481697721@g.us') return !0; 
+  if (m.chat !== '120363192689792663@g.us') return !0; 
 
   let who = m.messageStubParameters[0];
   let taguser = `@${who.split('@')[0]}`;
@@ -33,13 +33,13 @@ export async function before(m, { conn, participants, groupMetadata }) {
   let fraseRandomBienvenida = frasesBienvenida[Math.floor(Math.random() * frasesBienvenida.length)];
   let fraseRandomDespedida = frasesDespedida[Math.floor(Math.random() * frasesDespedida.length)];
 
-  let imageUrlBienvenida = 'https://files.catbox.moe/hnif5j.jpg'; 
-  let imageUrlDespedida = 'https://files.catbox.moe/hnif5j.jpg';
+  let imageUrlBienvenida = 'https://d.uguu.se/RuUuoGPE.jpg'; 
+  let imageUrlDespedida = 'https://d.uguu.se/RuUuoGPE.jpg';
 
 
   if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_ADD) {
     let bienvenida = `┏━━━━━━━━━━━━━━━━┅┈
-┃    🅂🅃🄰🄵🄵  🄺🄸🅁🄸🅃🄾-🄱🄾🅃
+┃    𝕊𝕋𝔸𝔽𝔽 𝕄𝕀𝕂𝕌 𝔹𝕆𝕋
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ ➤ 𝗡𝘂𝗲𝘃𝗼 𝗺𝗶𝗲𝗺𝗯𝗿𝗼: ${taguser}
 ┃ ➤ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject}
@@ -54,7 +54,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
   if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_LEAVE ||
       m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_REMOVE) {
     let despedida = `┏━━━━━━━━━━━━━━━━┅┈
-┃    🅂🅃🄰🄵🄵  🄺🄸🅁🄸🅃🄾-🄱🄾🅃
+┃    𝕊𝕋𝔸𝔽𝔽 𝕄𝕀𝕂𝕌 𝔹𝕆𝕋
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ ➤ 𝗠𝗶𝗲𝗺𝗯𝗿𝗼 𝗦𝗮𝗹𝗶𝗲𝗻𝘁𝗲: ${taguser}
 ┃ ➤ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject}
