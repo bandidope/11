@@ -8,23 +8,25 @@ const clockString = ms => {
   return [h, m, s].map(v => v.toString().padStart(2, '0')).join(':')
 }
 
-const imagen = "https://d.uguu.se/RuUuoGPE.jpg"; // Imagen del menú
+const imagen = "https://d.uguu.se/RuUuoGPE.jpg";
 
 const menuHeader = `
-╔═══════════════════╗
-║   🤖 *The - Miku Bot Menu* 🤖
-╚═══════════════════╝
+╭━━━「 🌸 THE - MIKU BOT MENU 」━━━╮
+┃ ¡Hola, %name!
+┃ Nivel: %level | XP: %exp/%max
+┃ Límite: %limit | Modo: %mode
+┃ Uptime: %uptime | Usuarios: %total
+╰━━━━━━━━━━━━━━━━━━━━━━━╯
 `;
+
+const sectionDivider = `╰───────────────╯`;
 
 const menuFooter = `
-━━━━━━━━━━━━━━━━━━━━━
-💡 Usa los comandos con el prefijo correspondiente.
-🛠️ Desarrollado por: @Miku-Team
-━━━━━━━━━━━━━━━━━━━━━
-`;
-
-const sectionDivider = `
-────────────────────────────
+╭────────────┈
+│ 💡 Usa cada comando con su prefijo.
+│ ✨ El bot perfecto para animarte.
+│ 🛠 Desarrollado por @Miku-Team
+╰────────────┈
 `;
 
 let handler = async (m, { conn, usedPrefix: _p}) => {
@@ -34,12 +36,10 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
     const { min, xp} = xpRange(level, global.multiplier || 1);
     const totalreg = Object.keys(global.db?.data?.users || {}).length;
     const mode = global.opts?.self? 'Privado 🔒': 'Público 🌐';
-    const muptime = clockString(process.uptime() * 1000);
-    const name = await conn.getName(m.sender) || "Usuario Desconocido";
+    const uptime = clockString(process.uptime() * 1000);
+    const name = await conn.getName(m.sender) || "Usuario";
 
-    if (!global.plugins) {
-      return conn.reply(m.chat, '❌ Error: No se han cargado los plugins correctamente.', m);
-}
+    if (!global.plugins) return conn.reply(m.chat, '❌ Plugins no cargados.', m);
 
     let categorizedCommands = {
       "🎭 Anime": [],
@@ -56,49 +56,55 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
       "💎 Premium": [],
       "📥 Descargas": [],
       "🛠️ Herramientas": [],
-      "🎭 Diversión": [],
+      "🎉 Diversión": [],
       "🔞 NSFW": [],
       "📀 Base de Datos": [],
       "🔊 Audios": [],
       "🗝️ Avanzado": [],
       "🔥 Free Fire": [],
-      "Otros": [] // Para comandos sin categoría específica
+      "Otros": []
 };
 
     Object.values(global.plugins)
 .filter(p => p?.help &&!p.disabled)
 .forEach(p => {
-        let category = Object.keys(categorizedCommands).find(tag => p.tags?.includes(tag.replace(/[^a-zA-Z]/g, "").toLowerCase())) || "Otros";
-        categorizedCommands[category].push(...(Array.isArray(p.help)? p.help: [p.help]));
+        let tag = Object.keys(categorizedCommands).find(key => p.tags?.includes(key.replace(/[^a-z]/gi, '').toLowerCase())) || 'Otros';
+        categorizedCommands[tag].push(...(Array.isArray(p.help)? p.help: [p.help]));
 });
 
-    let commandsText = Object.entries(categorizedCommands)
+    const menuBody = Object.entries(categorizedCommands)
 .filter(([_, cmds]) => cmds.length> 0)
-.map(([category, cmds]) => `${sectionDivider}\n📂 *${category}*\n${cmds.map(cmd => `🔹 ${_p}${cmd}`).join('\n')}\n${sectionDivider}`)
-.join('\n\n');
+.map(([title, cmds]) => {
+        const entries = cmds.map(cmd => {
+          const plugin = Object.values(global.plugins).find(p => p.help?.includes(cmd));
+          const premium = plugin?.premium? '💎': '';
+          const limited = plugin?.limit? '🌀': '';
+          return `│ 🔹 ${_p}${cmd} ${premium}${limited}`.trim();
+}).join('\n');
+        return `╭─「 ${title} 」\n${entries}\n${sectionDivider}`;
+}).join('\n\n');
 
-    const infoBlock = `
-👤 Usuario: ${name}
-🎖 Nivel: ${level}
-⚡ XP: ${exp - min} / ${xp}
-🔓 Límite: ${limit}
-🌎 Modo: ${mode}
-⏱ Uptime: ${muptime}
-👥 Usuarios totales: ${totalreg}
-━━━━━━━━━━━━━━━━━━━━━
-`;
+    const finalHeader = menuHeader
+.replace('%name', name)
+.replace('%level', level)
+.replace('%exp', exp - min)
+.replace('%max', xp)
+.replace('%limit', limit)
+.replace('%mode', mode)
+.replace('%uptime', uptime)
+.replace('%total', totalreg);
 
-    const menu = `${menuHeader}${infoBlock}\n${commandsText}\n${menuFooter}`.trim();
+    const fullMenu = `${finalHeader}\n\n${menuBody}\n\n${menuFooter}`.trim();
 
     await conn.sendMessage(m.chat, {
       image: { url: imagen},
-      caption: menu,
+      caption: fullMenu,
       mentions: [m.sender]
 }, { quoted: m});
 
 } catch (e) {
     console.error(e);
-    conn.reply(m.chat, '❌ Error al generar el menú. Inténtalo nuevamente.', m);
+    conn.reply(m.chat, '⚠️ Error al generar el menú.', m);
 }
 };
 
