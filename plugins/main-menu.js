@@ -39,44 +39,48 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
     const uptime = clockString(process.uptime() * 1000);
     const name = await conn.getName(m.sender) || "Usuario";
 
-    if (!global.plugins) return conn.reply(m.chat, '❌ Plugins no cargados.', m);
+    if (!global.plugins) return conn.reply(m.chat, '❌ Plugins no cargados correctamente.', m);
 
     let categorizedCommands = {
-      "🎭 Anime": [],
-      "ℹ️ Info": [],
-      "🔎 Search": [],
-      "🎮 Game": [],
-      "🤖 SubBots": [],
-      "🌀 RPG": [],
-      "📝 Registro": [],
-      "🎨 Sticker": [],
-      "🖼️ Imagen": [],
-      "🖌️ Logo": [],
-      "⚙️ Configuración": [],
-      "💎 Premium": [],
-      "📥 Descargas": [],
-      "🛠️ Herramientas": [],
-      "🎉 Diversión": [],
-      "🔞 NSFW": [],
-      "📀 Base de Datos": [],
-      "🔊 Audios": [],
-      "🗝️ Avanzado": [],
-      "🔥 Free Fire": [],
-      "Otros": []
+      "🎭 Anime": new Set(),
+      "ℹ️ Info": new Set(),
+      "🔎 Search": new Set(),
+      "🎮 Game": new Set(),
+      "🤖 SubBots": new Set(),
+      "🌀 RPG": new Set(),
+      "📝 Registro": new Set(),
+      "🎨 Sticker": new Set(),
+      "🖼️ Imagen": new Set(),
+      "🖌️ Logo": new Set(),
+      "⚙️ Configuración": new Set(),
+      "💎 Premium": new Set(),
+      "📥 Descargas": new Set(),
+      "🛠️ Herramientas": new Set(),
+      "🎉 Diversión": new Set(),
+      "🔞 NSFW": new Set(),
+      "📀 Base de Datos": new Set(),
+      "🔊 Audios": new Set(),
+      "🗝️ Avanzado": new Set(),
+      "🔥 Free Fire": new Set(),
+      "Otros": new Set()
 };
 
-    Object.values(global.plugins)
-.filter(p => p?.help &&!p.disabled)
-.forEach(p => {
-        let tag = Object.keys(categorizedCommands).find(key => p.tags?.includes(key.replace(/[^a-z]/gi, '').toLowerCase())) || 'Otros';
-        categorizedCommands[tag].push(...(Array.isArray(p.help)? p.help: [p.help]));
-});
+    for (const plugin of Object.values(global.plugins)) {
+      if (plugin?.help &&!plugin.disabled) {
+        const cmds = Array.isArray(plugin.help)? plugin.help: [plugin.help];
+        const tagKey = Object.keys(categorizedCommands).find(key => {
+          const clean = key.replace(/[^a-z]/gi, '').toLowerCase();
+          return plugin.tags?.includes(clean);
+}) || "Otros";
+        cmds.forEach(cmd => categorizedCommands[tagKey].add(cmd));
+}
+}
 
     const menuBody = Object.entries(categorizedCommands)
-.filter(([_, cmds]) => cmds.length> 0)
+.filter(([_, cmds]) => cmds.size> 0)
 .map(([title, cmds]) => {
-        const entries = cmds.map(cmd => {
-          const plugin = Object.values(global.plugins).find(p => p.help?.includes(cmd));
+        const entries = [...cmds].map(cmd => {
+          const plugin = Object.values(global.plugins).find(p => Array.isArray(p.help)? p.help.includes(cmd): p.help === cmd);
           const premium = plugin?.premium? '💎': '';
           const limited = plugin?.limit? '🌀': '';
           return `│ 🔹 _${_p}${cmd}_ ${premium}${limited}`.trim();
@@ -85,18 +89,17 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
 }).join('\n\n');
 
     const finalHeader = menuHeader
-.replace('%name', name)
-.replace('%level', level)
-.replace('%exp', exp - min)
-.replace('%max', xp)
-.replace('%limit', limit)
-.replace('%mode', mode)
-.replace('%uptime', uptime)
-.replace('%total', totalreg);
+.replace('%name', name || "Usuario")
+.replace('%level', level || 1)
+.replace('%exp', (exp - min) || 0)
+.replace('%max', xp || 100)
+.replace('%limit', limit || 0)
+.replace('%mode', mode || "Público")
+.replace('%uptime', uptime || "0:00:00")
+.replace('%total', totalreg || 0);
 
     const fullMenu = `${finalHeader}\n\n${menuBody}\n\n${menuFooter}`.trim();
-
-    await conn.sendMessage(m.chat, {
+await conn.sendMessage(m.chat, {
       image: { url: imagen},
       caption: fullMenu,
       mentions: [m.sender]
@@ -104,7 +107,7 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
 
 } catch (e) {
     console.error(e);
-    conn.reply(m.chat, '⚠️ Error al generar el menú.', m);
+    conn.reply(m.chat, '⚠️ Error al generar el menú. Intenta de nuevo.', m);
 }
 };
 
