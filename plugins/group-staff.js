@@ -7,20 +7,20 @@ let handler = async (m, { conn }) => {
 ┃ 🌟 *Versión:* ${global.vs || "2.0"}
 ┃
 ┣━━━━━👑 *Propietario* ━━━━━┫
-┃ • *Nombre:* Barboza
+┃ • *Nombre:* ADRIAN
 ┃ • *Rol:* 𝙿𝚛𝚘𝚙𝚒𝚎𝚝𝚊𝚛𝚒𝚘
-┃ • *Número:* wa.me/584146277368
+┃ • *Número:* wa.me/595976126756
 ┃
 ┃
 ┣━━━🚀 *Colaboradores* ━━━┫
-┃ • *Nombre:* Anuar
+┃ • *Nombre:* BAJO BOTS
 ┃   *Rol:* 𝚂𝚘𝚙𝚘𝚛𝚝𝚎
-┃   *Número:* wa.me/584123989549
+┃   *Número:* wa.me/573162402768
 ┃
 ┃
-┃ 
-┃
-┃
+┃ • *Nombre:* Barboza
+┃   *Rol:* Soporte
+┃   *Numero:* wa.me/584146277368
 ╰━━━━━━━━━━━━━━━━━━━━━━━╯
 `.trim();
 
