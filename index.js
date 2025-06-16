@@ -33,12 +33,12 @@ let Sesion = 'Sesiones/Principal'
 }
 verify();
 
-say('The Miku - Bot', {
+say('The-MikuBot-MD', {
 font: 'chrome',
 align: 'center',
 colors: ['white']
 });
-say(`Developed By • Miku Bot`, {
+say(`Tecnologis software by The-MikuBot-MD`, {
 font: 'console',
 align: 'center',
 colors: ['magenta']
