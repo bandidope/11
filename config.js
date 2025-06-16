@@ -23,19 +23,19 @@ global.prems = []
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-global.packname = `[ 🌪️Sticker Maker`
-global.author = 'ᑲ᥆𝗍 The Miku 🌪️]'
-global.stickpack = '©𝘽𝙤𝙩 𝙏𝙝𝙚 𝙈𝙞𝙠𝙪'
-global.stickauth = 'ᑲᥡ Miku'
-global.wm = 'MikuBot 🌪️'
-global.dev = '© 𝖯᥆𝗐ᥱ𝗋ᥱძ ᑲᥡ Staff  ☂︎  𝖳ᥱᥲ𝗆'
-global.wait = '🌪️ *Aɢᴜᴀʀᴅᴇ ᴜɴ ᴍᴏᴍᴇɴᴛᴏ, sᴏʏ ʟᴇɴᴛ𝙾... ฅ^•ﻌ•^ฅ\n\n> ᑲ᥆𝗍 Miku 🌪️*'
-global.botname = '[ 🌪️𝐓𝐇𝐄 𝐌𝐈𝐊𝐔 𝐁𝐎𝐓 ]'
-global.textbot = `Powered By Bot The Miku🌪️`
-global.dev = '• ⍴᥆ᥕᥱrᥱძ ᑲᥡ ᥴ᥆mᥙᥒі𝗍ᥡ ᑲ᥆𝗍 The Miku'
-global.listo = '*Aqui tiene ฅ^•ﻌ•^ฅ*'
-global.namechannel = 'ᑲ᥆𝗍 The-Miku🌪️'
-global.channel = 'https://whatsapp.com/channel/0029Vaua0ZD3gvWjQaIpSy18'
+global.packname = `[ 𝐒𝐭𝐢𝐜𝐤𝐞𝐫 𝐁𝐲`
+global.author = '𝐓𝐡𝐞-𝐌𝐢𝐤𝐮𝐁𝐨𝐭-𝐌𝐃]'
+global.stickpack = '𝐓𝐡𝐞-𝐌𝐢𝐤𝐮𝐁𝐨𝐭-𝐌𝐃'
+global.stickauth = '𝐁𝐲 𝐓𝐡𝐞-𝐌𝐢𝐤𝐮𝐁𝐨𝐭-𝐌𝐃'
+global.wm = '𝐓𝐡𝐞-𝐌𝐢𝐤𝐮𝐁𝐨𝐭-𝐌𝐃'
+global.dev = '𝐒𝐨𝐟𝐭𝐰𝐚𝐫𝐞 𝐁𝐲 𝐓𝐞𝐜𝐧𝐨𝐥𝐨𝐠𝐢𝐬 𝐠𝐫𝐮𝐩'
+global.wait = '*𝐏𝐨𝐫 𝐟𝐚𝐯𝐨𝐫 𝐚𝐠𝐮𝐚𝐫𝐝𝐞 𝐮𝐧 𝐦𝐨𝐦𝐞𝐧𝐭𝐨\n\n> 𝐓𝐡𝐞-𝐌𝐢𝐤𝐮𝐁𝐨𝐭-𝐌𝐃*'
+global.botname = '[ 𝐓𝐡𝐞-𝐌𝐢𝐤𝐮𝐁𝐨𝐭-𝐌𝐃 ]'
+global.textbot = `𝐓𝐞𝐜𝐧𝐨𝐥𝐨𝐠𝐢𝐬 𝐛𝐲 𝐓𝐡𝐞-𝐌𝐢𝐤𝐮𝐁𝐨𝐭-𝐌𝐃`
+global.dev = '𝐒𝐨𝐟𝐭𝐰𝐚𝐫𝐞 𝐁𝐲 𝐓𝐞𝐜𝐧𝐨𝐥𝐨𝐠𝐢𝐬 𝐠𝐫𝐮𝐩'
+global.listo = '*𝐄𝐱𝐢𝐭𝐨*'
+global.namechannel = '𝐓𝐡𝐞-𝐌𝐢𝐤𝐮𝐁𝐨𝐭-𝐌𝐃'
+global.channel = 'https://whatsapp.com/channel/0029VaGt7Uk6WaKkEDZUh43W'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
@@ -46,7 +46,7 @@ global.miniurl = fs.readFileSync('./storage/img/miniurl.jpg')
 
 global.group = 'https://chat.whatsapp.com/C92isvspFcXCtqv2PqCfHI'
 global.canal = 'https://whatsapp.com/channel/0029VaGt7Uk6WaKkEDZUh43W'
-global.insta = ''
+global.insta = 'https://instagram.com/adri.analegresanchez'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
