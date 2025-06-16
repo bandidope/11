@@ -140,7 +140,6 @@ export async function handler(chatUpdate) {
         } catch (e) {
             console.error(e)
         }
-        // Tesis estuvo aquí 🤤
        const mainBot = global?.conn?.user?.jid
        const chat = global.db.data.chats[m.chat] || {}
        const isSubbs = chat.antiLag === true
@@ -158,7 +157,6 @@ export async function handler(chatUpdate) {
 
 
         let _user = global.db.data && global.db.data.users && global.db.data.users[m.sender]
-        //- Tesis estuvo aquí 🙀🙀
         const sendNum = m?.sender?.replace(/[^0-9]/g, '')
         const isROwner = [conn.decodeJid(global.conn?.user?.id), ...global.owner?.map(([number]) => number)].map(v => (v || '').replace(/[^0-9]/g, '')).includes(sendNum)
         const isOwner = isROwner || m.fromMe
@@ -182,8 +180,7 @@ export async function handler(chatUpdate) {
         let usedPrefix
 
 const groupMetadata = (m.isGroup ? ((conn.chats[m.chat] || {}).metadata || await this.groupMetadata(m.chat).catch(_ => null)) : {}) || {}
-const participants = (m.isGroup ? groupMetadata.participants : []) || []
-//- Matías es mi novia (Tesis) 🥺       
+const participants = (m.isGroup ? groupMetadata.participants : []) || []    
 const normalizeJid = jid => jid?.replace(/[^0-9]/g, '')
 const cleanJid = jid => jid?.split(':')[0] || ''
 const senderNum = normalizeJid(m.sender)
@@ -264,7 +261,6 @@ conn: this,
                 let [command, ...args] = noPrefix.trim().split` `.filter(v => v)
                 args = args || []
                 let _args = noPrefix.trim().split` `.slice(1)
-// Tesis estuvo aquí 🙀
                 let text = _args.join` `  
 command = (command || '').toLowerCase()  
 const groupLimitado = '120363146549758457@g.us'  
