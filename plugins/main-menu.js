@@ -8,10 +8,10 @@ const clockString = ms => {
   return [h, m, s].map(v => v.toString().padStart(2, '0')).join(':')
 }
 
-const imagen = "https://d.uguu.se/RuUuoGPE.jpg";
+const imagen = "https://i.ibb.co/LYZrgRs/The-Miku-Bot-MD.jpg";
 
 const menuHeader = `
-╭━━━「 🌸 THE - MIKU BOT MENU 」━━━╮
+╭━━━「 🌸 The-MikuBot-MD 」━━━╮
 ┃ ¡Hola, %name!
 ┃ Nivel: %level | XP: %exp/%max
 ┃ Límite: %limit | Modo: %mode
@@ -25,7 +25,7 @@ const menuFooter = `
 ╭────────────┈
 │ 💡 Usa cada comando con su prefijo.
 │ ✨ El bot perfecto para animarte.
-│ 🛠 Desarrollado por @Miku-Team
+│ 🛠 Desarrollado por @Miku-Staff
 ╰────────────┈
 `;
 
