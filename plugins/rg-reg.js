@@ -2,50 +2,61 @@
 import { createHash} from 'crypto';
 
 let handler = async (m, { conn, text, usedPrefix, command}) => {
-    let regFormat = /^([^\s]+)\.(\d+)\.(\w+)$/i;
-    let userDB = global.db.data.users[m.sender];
-    let imageUrl = 'https://qu.ax/ARhkT.jpg';
+  const formatoRegistro = /^([^\s]+)\.(\d{1,3})\.([^\s]+)$/i;
+  const datos = global.db.data.users[m.sender] || {};
+  const fondo = 'https://qu.ax/ARhkT.jpg';
 
-    if (userDB?.registered) {
-        return m.reply(`✅ Ya estás registrado.\nSi deseas eliminar tu registro, usa: *${usedPrefix}unreg*`);
+  if (datos.registered) {
+    return m.reply(`🌸 *Ya estás registrada/o.*\n\n🧼 Usa *${usedPrefix}unreg* si deseas borrarte del registro.`);
 }
 
-    if (!regFormat.test(text)) {
-        return m.reply(`❌ Formato incorrecto.\nUsa: *${usedPrefix + command} Nombre.Edad.País*\nEjemplo: *${usedPrefix + command} Barboza.18.Venezuela*`);
+  if (!formatoRegistro.test(text)) {
+    return m.reply(`🌷 *Formato incorrecto.*\n\n🌸 Usa: *${usedPrefix + command} Nombre.Edad.País*\n📌 Ejemplo: *${usedPrefix + command} Sakura.22.Japón*`);
 }
 
-    let [_, name, age, country] = text.match(regFormat);
-    age = parseInt(age);
+  const [, nombre, edadStr, pais] = text.match(formatoRegistro);
+  const edad = parseInt(edadStr);
 
-    if (!name || name.length> 50) return m.reply('❌ Nombre inválido o demasiado largo.');
-    if (isNaN(age) || age < 5 || age> 100) return m.reply('❌ Edad no válida.');
-    if (!country || country.length> 30) return m.reply('❌ País inválido o demasiado largo.');
+  if (!nombre || nombre.length> 32) return m.reply(`❌ El nombre es demasiado largo o inválido.`);
+  if (isNaN(edad) || edad < 5 || edad> 120) return m.reply(`🎂 Edad inválida, debe estar entre 5 y 120 años.`);
+  if (!pais || pais.length> 40) return m.reply(`🌍 El país es muy largo o inválido.`);
 
-    let userHash = createHash('md5').update(m.sender).digest('hex');
+  const id = createHash('md5').update(m.sender).digest('hex');
 
-    global.db.data.users[m.sender] = {
-        name,
-        age,
-        country,
-        registered: true,
-        regTime: Date.now(),
-        id: userHash
+  global.db.data.users[m.sender] = {
+    name: nombre,
+    age: edad,
+    country: pais,
+    registered: true,
+    regTime: Date.now(),
+    id
 };
 
-    let confirmMsg = `🎉 *Registro exitoso!*\n\n📂 Tus datos:\n👤 *Nombre:* ${name}\n🎂 *Edad:* ${age} años\n🌍 *País:* ${country}\n🆔 *Código:* ${userHash}`;
+  const mensajeRegistro = `🌸 *Registro completado con éxito*\n\n✨ *Nombre:* _${nombre}_\n🎂 *Edad:* _${edad} años_\n🌍 *País:* _${pais}_\n🆔 *ID:* _${id}_`;
 
-    await conn.sendMessage(m.chat, {
-        image: { url: imageUrl},
-        caption: confirmMsg
+  await conn.sendMessage(m.chat, {
+    image: { url: fondo},
+    caption: mensajeRegistro
 });
 
-    await conn.sendMessage(m.chat, {
-        text: `✅ *Verificación completada!*\n\nTu registro ha sido validado y guardado correctamente.`,
+  await conn.sendMessage(m.chat, {
+    text: `✅ *Verificación completada con éxito.*\n🌷 ¡Bienvenido/a a la comunidad, ${nombre}!`,
+    contextInfo: {
+      externalAdReply: {
+        title: '🌸 Registro Exitoso',
+        body: 'Miku Bot 🌸',
+        thumbnailUrl: fondo,
+        sourceUrl: 'https://whatsapp.com/channel/0029Vaua0ZD3gvWjQaIpSy18',
+        mediaType: 1,
+        renderLargerThumbnail: true,
+        showAdAttribution: true
+}
+}
 });
 };
 
-handler.help = ['registrar <nombre.edad.país>'];
-handler.tags = ['registro'];
-handler.command = ['registrar', 'reg'];
+handler.help = ['🌸 registro <nombre.edad.país>'];
+handler.tags = ['🌸 registro'];
+handler.command = ['🌸registrar', '🌸registro', '🌸reg'];
 
 export default handler;
