@@ -5,7 +5,7 @@ import fetch from 'node-fetch';
 let handler = async (m, { conn, usedPrefix, command, text }) => {
   if (!text) {
     await m.react('📀');
-    return m.reply(`╭─⬣「 *Barboza Ai* 」⬣
+    return m.reply(`╭─⬣「 *Miku bot* 」⬣
 │  ❗ *Uso Incorrecto*
 │  ➤ Ingresa un texto para buscar en YouTube.
 │  ➤ *Ejemplo:* ${usedPrefix + command} Shakira
