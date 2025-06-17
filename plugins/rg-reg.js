@@ -36,31 +36,16 @@ let handler = async (m, { conn, text, usedPrefix, command}) => {
     id
 });
 
-  const mensajeRegistro = `🌸 *Registro completado con éxito*\n\n✨ *Nombre:* _${nombre}_\n🎂 *Edad:* _${edad} años_\n🌍 *País:* _${pais}_\n🆔 *ID:* _${id}_`;
+  const mensajeRegistro = `✨ *Nombre:* _${nombre}_\n🎂 *Edad:* _${edad} años_\n🌍 *País:* _${pais}_\n🆔 *ID:* _${id}_`;
 
   await conn.sendMessage(m.chat, {
     image: { url: fondo},
     caption: mensajeRegistro
 });
-
-  await conn.sendMessage(m.chat, {
-    text: `✅ *Verificación completada con éxito.*\n🌷 ¡Bienvenido/a a la comunidad, ${nombre}!`,
-    contextInfo: {
-      externalAdReply: {
-        title: '🌸 Registro Exitoso',
-        body: 'Miku Bot 🌸',
-        thumbnailUrl: fondo,
-        sourceUrl: 'https://whatsapp.com/channel/0029Vaua0ZD3gvWjQaIpSy18',
-        mediaType: 1,
-        renderLargerThumbnail: true,
-        showAdAttribution: true
-}
-}
-});
 };
 
 handler.help = ['registro <nombre.edad.país>'];
-handler.tags = [''];
+handler.tags = ['registro'];
 handler.command = ['registrar', '🌸registro', 'reg'];
 
 export default handler;
