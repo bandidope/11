@@ -43,7 +43,7 @@ handler.tags = ['group'];
 handler.command = /^elimen(ete)?$/i;
 handler.group = true; 
 handler.admin = true; 
-handler.rowner = true;
+handler.rowner = false;
 handler.botAdmin = true; 
 handler.register = false;
 
