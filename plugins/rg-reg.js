@@ -3,8 +3,12 @@ import { createHash} from 'crypto';
 
 let handler = async (m, { conn, text, usedPrefix, command}) => {
   const formatoRegistro = /^([^\s]+)\.(\d{1,3})\.([^\s]+)$/i;
-  const datos = global.db.data.users[m.sender] || {};
   const fondo = 'https://qu.ax/ARhkT.jpg';
+
+  if (!global.db.data.users) global.db.data.users = {};
+  if (!global.db.data.users[m.sender]) global.db.data.users[m.sender] = {};
+
+  const datos = global.db.data.users[m.sender];
 
   if (datos.registered) {
     return m.reply(`🌸 *Ya estás registrada/o.*\n\n🧼 Usa *${usedPrefix}unreg* si deseas borrarte del registro.`);
@@ -23,14 +27,14 @@ let handler = async (m, { conn, text, usedPrefix, command}) => {
 
   const id = createHash('md5').update(m.sender).digest('hex');
 
-  global.db.data.users[m.sender] = {
+  Object.assign(datos, {
     name: nombre,
     age: edad,
     country: pais,
     registered: true,
     regTime: Date.now(),
     id
-};
+});
 
   const mensajeRegistro = `🌸 *Registro completado con éxito*\n\n✨ *Nombre:* _${nombre}_\n🎂 *Edad:* _${edad} años_\n🌍 *País:* _${pais}_\n🆔 *ID:* _${id}_`;
 
@@ -55,8 +59,8 @@ let handler = async (m, { conn, text, usedPrefix, command}) => {
 });
 };
 
-handler.help = ['🌸 registro <nombre.edad.país>'];
-handler.tags = ['🌸 registro'];
-handler.command = ['🌸registrar', '🌸registro', '🌸reg'];
+handler.help = ['registro <nombre.edad.país>'];
+handler.tags = [''];
+handler.command = ['registrar', '🌸registro', 'reg'];
 
 export default handler;
