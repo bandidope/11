@@ -44,7 +44,7 @@ let handler = async (m, { conn, args}) => {
 }
 } else if (args[0]) {
       if (isUrl(args[0])) {
-        stiker = await sticker(false, args[0], `✨ Sticker Personalizado`, `🌈 Barboza Bot`);
+        stiker = await sticker(false, args[0], `✨ Sticker Personalizado`, `🌈 Miku-Bot`);
 } else {
         return m.reply(`*⚠️ URL incorrecto, verifica que sea una imagen válida.*`);
 }
