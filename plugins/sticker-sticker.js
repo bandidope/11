@@ -52,7 +52,7 @@ let handler = async (m, { conn, args}) => {
     if (stiker) {
       conn.sendFile(m.chat, stiker, 'sticker.webp', '', m);
 } else {
-      return conn.reply(m.chat, `🤖 *Envía una foto o video para convertirla en sticker. Sigue el canal para más contenido.* 🎭`, m);
+      return conn.reply(m.chat, `📍 *Envía una foto o video para convertirla en sticker. Sigue el canal para más contenido.* 🎭`, m);
 }
 }
 };
