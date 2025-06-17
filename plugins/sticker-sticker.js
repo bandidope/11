@@ -30,7 +30,7 @@ let handler = async (m, { conn, args}) => {
         let userId = m.sender;
         let packstickers = global.db.data.users[userId] || {};
         let texto1 = packstickers.text1 || '🌟 Sticker Personalizado';
-        let texto2 = packstickers.text2 || '📢 Barboza Bot';
+        let texto2 = packstickers.text2 || '📢 Miku Bot 🌸';
 
         stiker = await sticker(img, false, `✨ ${texto1}`, `🌈 ${texto2}`);
 } finally {
