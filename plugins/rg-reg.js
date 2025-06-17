@@ -15,7 +15,7 @@ let handler = async (m, { conn, text, usedPrefix, command}) => {
 }
 
   if (!formatoRegistro.test(text)) {
-    return m.reply(`🌷 *Formato incorrecto.*\n\n🌸 Usa: *${usedPrefix + command} Nombre.Edad.País*\n📌 Ejemplo: *${usedPrefix + command} Miku-Bot.22*`);
+    return m.reply(`🌷 *Formato incorrecto.*\n\n🌸 Usa: *${usedPrefix + command} Nombre.Edad*\n📌 Ejemplo: *${usedPrefix + command} Miku-Bot.22*`);
 }
 
   const [, nombre, edadStr, pais] = text.match(formatoRegistro);
