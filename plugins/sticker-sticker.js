@@ -53,13 +53,6 @@ let handler = async (m, { conn, args}) => {
 *Error: has usado mal el comando.s*
 
 ✅ Usa este comando respondiendo a una imagen o video con menos de 15 segundos
-
-🧩 También puedes escribir el comando junto a un link directo a una imagen
-
-Ejemplo:
-.s https://telegra.ph/file/ejemplo.jpg
-
-📌 Sigue nuestro canal para más funciones creativas!
 `);
 }
 } finally {
