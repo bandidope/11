@@ -274,7 +274,7 @@ let handler = async (msg, { conn, args, usedPrefix, command, isOwner }) => {
               forwardingScore: 999,
               isForwarded: true,
               forwardedNewsletterMessageInfo: {
-                newsletterJid: '120363375378707428@newsletter', 
+                newsletterJid: '120363209036072837@newsletter', 
                 newsletterName: '🌹𝐓𝐡𝐞-𝐌𝐢𝐤𝐮𝐁𝐨𝐭-𝐌𝐃🌹', 
                 serverMessageId: -1
               }
@@ -290,7 +290,7 @@ let handler = async (msg, { conn, args, usedPrefix, command, isOwner }) => {
               forwardingScore: 999,
               isForwarded: true,
               forwardedNewsletterMessageInfo: {
-                newsletterJid: '120363375378707428@newsletter', 
+                newsletterJid: '120363209036072837@newsletter', 
                 newsletterName: '🌹𝐓𝐡𝐞-𝐌𝐢𝐤𝐮𝐁𝐨𝐭-𝐌𝐃🌹',
                 serverMessageId: -1
               }
@@ -308,7 +308,7 @@ let handler = async (msg, { conn, args, usedPrefix, command, isOwner }) => {
               forwardingScore: 999,
               isForwarded: true,
               forwardedNewsletterMessageInfo: {
-                newsletterJid: '120363375378707428@newsletter', 
+                newsletterJid: '120363209036072837@newsletter', 
                 newsletterName: '🌹𝐓𝐡𝐞-𝐌𝐢𝐤𝐮𝐁𝐨𝐭-𝐌𝐃🌹', 
                 serverMessageId: -1
               }
