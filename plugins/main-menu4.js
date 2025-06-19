@@ -57,7 +57,7 @@ const handler = async (m, { conn}) => {
 🎮 **¡La diversión no tiene límites!**
 `;
 
-    const imageUrl = "https://files.catbox.moe/ltq7ph.jpg";
+        let img = "https://i.ibb.co/LYZrgRs/The-Miku-Bot-MD.jpg";
 
     await conn.sendMessage(m.chat, {
         image: { url: imageUrl},
