@@ -4,8 +4,6 @@ let handler = async (m, { conn}) => {
   let texto = `
 🌸 *ＭＩＫＵ　ＢＯＴ - ＭＥＮＵ　ＤＥ　ＬＯＧＯＳ* 🌸
 
-🎨 *Diseña con estilo usando los comandos:*
-
 ┊🌷 _.logocorazon_ (texto)
 ┊🌷 _.logochristmas_ (texto)
 ┊🌷 _.logopareja_ (texto)
