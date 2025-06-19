@@ -1,24 +1,31 @@
 
 import PhoneNumber from 'awesome-phonenumber';
 
-async function handler(m, { conn }) { 
-    let numcreador = '595976126756';
-    let ownerJid = numcreador + '@s.whatsapp.net';
+async function handler(m, { conn}) {
+  let numcreador = '595976126756';
+  let ownerJid = numcreador + '@s.whatsapp.net';
 
-    let name = await conn.getName(ownerJid) || 'Owner'; 
-    let about = (await conn.fetchStatus(ownerJid).catch(() => {}))?.status || 'Creador de bots de WhatsApp y del The Miku Bot';
-    let empresa = 'Adrian- Servicios Tecnológicos';
-    let imagen = 'https://qu.ax/VGCPX.jpg'; // Reemplaza con la URL de la imagen que deseas mostrar
+  let name = await conn.getName(ownerJid) || '🌸 Adrian Developer';
+  let about = (await conn.fetchStatus(ownerJid).catch(() => {}))?.status || '💻 Creadora del bot *Miku Bot 🌸* y amante del desarrollo.';
+  let empresa = '✨ Hanatech Labs';
+  let imagen = 'https://qu.ax/VGCPX.jpg';';
 
-    // Enviar imagen junto con el número del dueño y sus detalles
-    await conn.sendMessage(m.chat, { 
-        image: { url: imagen },
-        caption: `👤 *Dueño del bot*\n📌 *Nombre:* ${name}\n📞 *Número:* wa.me/${numcreador}\n📝 *Descripción:* ${about}\n🏢 *Empresa:* ${empresa}\n📧 *Email:* s\n🌐 *Instagram:* `,
-    }, { quoted: m });
+  const caption = `
+╔═══🌸 *INFORMACIÓN DE LA CREADORA* 🌸═══╗
+👩‍💻 *Nombre:* ${name}
+📱 *Número:* wa.me/${numcreador}
+📝 *Descripción:* ${about}
+🏢 *Empresa:* ${empresa}
+╚════════════════════════════════╝`.trim();
+
+  await conn.sendMessage(m.chat, {
+    image: { url: imagen},
+    caption: caption
+}, { quoted: m});
 }
 
-handler.help = ['owner']; 
-handler.tags = ['main']; 
+handler.help = ['owner'];
+handler.tags = ['main'];
 handler.command = ['owner', 'creator', 'creador', 'dueño'];
 
 export default handler;
