@@ -1,12 +1,5 @@
 
 let handler = async (m, { conn}) => {
-  if (!global.db.data.users[m.sender]) global.db.data.users[m.sender] = {};
-  if (!global.db.data.users[m.sender].lastcofre) global.db.data.users[m.sender].lastcofre = 0;
-
-  let time = global.db.data.users[m.sender].lastcofre + 86400000; // 24 horas
-  if (new Date - global.db.data.users[m.sender].lastcofre < 86400000)
-    throw `[❗INFO❗] Ya reclamaste tu cofre\nVuelve en *${msToTime(time - new Date())}* para reclamarlo nuevamente. 🌸`;
-
   let img = "https://i.ibb.co/LYZrgRs/The-Miku-Bot-MD.jpg";
   let texto = `
 🌸 *ＭＩＫＵ　ＢＯＴ - ＭＥＮＵ　ＤＥ　ＬＯＧＯＳ* 🌸
@@ -48,15 +41,12 @@ let handler = async (m, { conn}) => {
     message: {
       contactMessage: {
         displayName: "Miku Bot 🌸",
-        vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Miku;Bot;;;\nFN:Miku Bot 🌸\nitem1.TEL;waid=${
-          m.sender.split("@")[0]
-}:${m.sender.split("@")[0]}\nitem1.X-ABLabel:Celular\nEND:VCARD`
+        vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Miku;Bot;;;\nFN:Miku Bot 🌸\nitem1.TEL;waid=${m.sender.split("@")[0]}:${m.sender.split("@")[0]}\nitem1.X-ABLabel:Celular\nEND:VCARD`
 }
 }
 };
 
   await conn.sendFile(m.chat, img, 'menu-logos.jpg', texto, fkontak);
-  global.db.data.users[m.sender].lastcofre = new Date().getTime();
 };
 
 handler.help = ['menu3'];
@@ -64,10 +54,3 @@ handler.tags = ['main', 'logo'];
 handler.command = ['menulogos', 'logos', 'menu3'];
 
 export default handler;
-
-function msToTime(ms) {
-  let h = Math.floor(ms / 3600000);
-  let m = Math.floor((ms % 3600000) / 60000);
-  let s = Math.floor((ms % 60000) / 1000);
-  return `${h}h ${m}m ${s}s`;
-}
