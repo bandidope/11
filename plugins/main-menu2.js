@@ -70,8 +70,6 @@ let handler = async (m, { conn}) => {
 🌷 _Una Pregunta_
 🌷 _Vete A La VRG_
 🌷 _:V_
-
-🌟 *Comparte risas y diversión con* _Miku Bot 🌸_
 `;
 
   const fkontak = {
