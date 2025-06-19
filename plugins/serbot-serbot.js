@@ -27,8 +27,8 @@ let crm3 = "Sinfo-Donar.js";
 let crm4 = " _autoresponder.js info-bot.js";
 let drm1 = "";
 let drm2 = "";
-let rtx = "*Convertirse en sub bot / JadiBot*\n\n*ðŸŒ¼ Utilice otro celular para escanear este codigo QR o escanea el codigo mediante una PC para convertirte en Sub Bot*\n\n`1` Â» Haga clic en los tres puntos en la esquina superior derecha\n\n`2` Â» Toca dispositivos vinculados\n\n`3` Â» Escanee este codigo QR para iniciar sesiÃ³n\n\nðŸŒ¼ *Este cÃ³digo QR expira en 45 segundos*";
-let rtx2 = "*Convertirse en sub bot / JadiBot*\n\n*ðŸŒ¼ Usa este CÃ³digo para convertirte en un Sub Bot*\n\n`1` Â» Haga clic en los tres puntos en la esquina superior derecha\n\n`2` Â» Toca dispositivos vinculados\n\n`3` Â» Selecciona Vincular con el nÃºmero de telÃ©fono\n\n`4` Â» Escriba el CÃ³digo\n\nðŸŒ¼ *Este cÃ³digo solo funciona en en el nÃºmero que lo solicitÃ³*";
+let rtx = "*Convertirse en sub bot / JadiBot*\n\n Utilice otro celular para escanear este codigo QR o escanea el codigo mediante una PC para convertirte en Sub Bot*\n\n`1`  Haga clic en los tres puntos en la esquina superior derecha\n\n`2`  Toca dispositivos vinculados\n\n`3`  Escanee este codigo QR para iniciar sesiÃ³n\n\n *Este codigo QR expira en 45 segundos*";
+let rtx2 = "*Convertirse en sub bot / JadiBot*\n\n Usa este Codigo para convertirte en un Sub Bot*\n\n`1`  Haga clic en los tres puntos en la esquina superior derecha\n\n`2`  Toca dispositivos vinculados\n\n`3`  Selecciona Vincular con el numero de telefono\n\n`4`  Escriba el Codigo\n\n Este codigo solo funciona en en el numero que lo solicitaste";
 
 if (global.conns instanceof Array) {
   console.log();
@@ -170,12 +170,12 @@ loadSubbots().catch(console.error);
 // Handler principal
 let handler = async (msg, { conn, args, usedPrefix, command, isOwner }) => {
   if (!global.db.data.settings[conn.user.jid].jadibotmd) {
-    return conn.reply(msg.chat, "*ðŸŒ¼ Este Comando estÃ¡ deshabilitado por mi creador.*", msg, rcanal);
+    return conn.reply(msg.chat, " Este Comando esta¡ deshabilitado por mi creador.*", msg, rcanal);
   }
 
   // Verificar lÃ­mite de subbots
   if (global.conns.length >= MAX_SUBBOTS) {
-    return conn.reply(msg.chat, `*â�€ Lo siento, se ha alcanzado el lÃ­mite de ${MAX_SUBBOTS} subbots. Por favor, intenta mÃ¡s tarde.*`, msg, rcanal);
+    return conn.reply(msg.chat, ` Lo siento, se ha alcanzado el limite de ${MAX_SUBBOTS} subbots. Por favor, intenta mÃ¡s tarde.*`, msg, rcanal);
   }
 
   let user = conn;
