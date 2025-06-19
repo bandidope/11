@@ -1,69 +1,58 @@
 
 import fetch from 'node-fetch';
 
-const handler = async (m, { conn, text}) => {
-  if (!text) {
-    return m.reply(`
-╭─❀🌸 *FALTA EL NOMBRE* 🌸❀─╮
-│ Escribe el título o link del video.
-│
-│ 💡 Ejemplo:
-│.play2 Your Name trailer
-╰──────────────────────────╯`.trim());
-}
+let handler = async (m, { conn, args, text}) => {
+  if (!text) throw m.reply('🌸 Por favor, proporciona una consulta.');
+
+  const sender = m.sender.split('@')[0];
 
   try {
-    await m.reply('🔎 Buscando tu video... 🌸');
+    m.reply('🔄🌸 *Procesando tu solicitud...*');
 
     const res = await fetch(`https://fastrestapis.fasturl.cloud/downup/ytdown-v1?name=${encodeURIComponent(text)}&format=mp4&quality=720&server=auto`);
     const json = await res.json();
 
-    const data = json?.result;
-    const meta = data?.metadata || {};
-
-    if (!data?.media) {
-      const motivo = json?.message || 'No se encontró media válida.';
-      return m.reply(`❌ *No se pudo obtener el video.*\n🌸 Motivo: ${motivo}`);
+    if (!json?.result?.media) {
+      throw new Error('❌🌸 No se encontró el contenido.');
 }
 
-    const title = data.title || 'Título no disponible';
-    const duration = meta.lengthSeconds || 'Desconocida';
-    const quality = data.quality || 'Auto';
-    const description = meta.description || 'Sin descripción';
-    const thumbnail = meta.thumbnail || 'https://i.ibb.co/NyBN0kD/thumbnail.jpg';
+    const { thumbnail, description, lengthSeconds} = json.result.metadata;
+    const { media, title, quality} = json.result;
 
-    const caption = `
-╔═🎬 *VIDEO LISTO* 🌸
-║ 🎞️ *Título:* ${title}
-║ ⏱️ *Duración:* ${duration} seg
-║ 💎 *Calidad:* ${quality}
-╚════════════════════╝
+    const caption = `🎥🌸 *DESCARGA EXITOSA*\n\n📌🌸 *Título:* ${title}\n⏳🌸 *Duración:* ${lengthSeconds} segundos\n🌟🌸 *Calidad:* ${quality}\n\n📄🌸 *Descripción:*\n${description}`;
 
-📄 *Descripción:*
-${description}`.trim();
+    // Enviar imagen con información
+    await conn.sendMessage(
+      m.chat,
+      {
+        image: { url: thumbnail},
+        caption: caption,
+        mentions: [m.sender]
+},
+      { quoted: m}
+);
 
-    await conn.sendMessage(m.chat, {
-      image: { url: thumbnail},
-      caption,
-      mentions: [m.sender]
-}, { quoted: m});
-
-    await conn.sendMessage(m.chat, {
-      video: { url: data.media},
-      mimetype: 'video/mp4',
-      fileName: `${title}.mp4`,
-      caption: `✅ Aquí está tu video, @${m.sender.split('@')[0]} 🎥🌸`,
-      mentions: [m.sender]
-}, { quoted: m});
+    // Enviar el video como archivo normal
+    await conn.sendMessage(
+      m.chat,
+      {
+        video: { url: media},
+        mimetype: 'video/mp4',
+        fileName: `${title}.mp4`,
+        caption: `✅🌸 *Aquí tienes tu video, @${sender}* 🎬🌸`,
+        mentions: [m.sender]
+},
+      { quoted: m}
+);
 
 } catch (e) {
-    console.error('[❌ Error al procesar el video]', e);
-    return m.reply('⚠️ Ocurrió un error inesperado al procesar el video. Intenta con otro enlace o título. 🌸');
+    console.error(e);
+    await conn.sendMessage(m.chat, { text: '⚠️🌸 Intente más tarde, el vídeo es muy pesado o hubo un error al procesarlo.', mentions: [m.sender]}, { quoted: m});
 }
 };
 
-handler.help = ['play2 <consulta>'];
+handler.help = ['play'];
 handler.tags = ['downloader'];
-handler.command = ['play2'];
+handler.command = ["play2"];
 
 export default handler;
