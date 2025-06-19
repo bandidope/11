@@ -15,7 +15,10 @@ let handler = async (m, { conn, text, usedPrefix, command}) => {
 }
 
   if (!formatoRegistro.test(text)) {
-    return m.reply(`🌷 *Formato incorrecto.*\n\n🌸 Usa: *${usedPrefix + command} Nombre.Edad*\n📌 Ejemplo: *${usedPrefix + command} MikuBot.22*`);
+    return m.reply(`🌷 *Formato incorrecto.*
+
+🌸 Usa: *${usedPrefix + command} Nombre.Edad.País*
+📌 Ejemplo: *${usedPrefix + command} MikuBot.22.Japón*`);
 }
 
   const [, nombre, edadStr, pais] = text.match(formatoRegistro);
@@ -36,7 +39,12 @@ let handler = async (m, { conn, text, usedPrefix, command}) => {
     id
 });
 
-  const mensajeRegistro = `✨ *Nombre:* _${nombre}_\n🎂 *Edad:* _${edad} años_\n🌍 *País:* _${pais}_\n🆔 *ID:* _${id}_`;
+  const mensajeRegistro = `╭── ⳹ *Registro exitoso* ⳹
+│ ✅ *Nombre:* ${nombre}
+│ 🎂 *Edad:* ${edad} años
+│ 🌍 *País:* ${pais}
+│ 🆔 *ID:* ${id}
+╰──────────────`;
 
   await conn.sendMessage(m.chat, {
     image: { url: fondo},
