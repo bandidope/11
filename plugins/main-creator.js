@@ -8,7 +8,7 @@ async function handler(m, { conn}) {
   let name = await conn.getName(ownerJid) || '🌸 Adrian Developer';
   let about = (await conn.fetchStatus(ownerJid).catch(() => {}))?.status || '💻 Creadora del bot *Miku Bot 🌸* y amante del desarrollo.';
   let empresa = '✨ Hanatech Labs';
-  let imagen = 'https://qu.ax/VGCPX.jpg';';
+  let imagen = 'https://qu.ax/VGCPX.jpg'; // ← corregido aquí
 
   const caption = `
 ╔═══🌸 *INFORMACIÓN DE LA CREADORA* 🌸═══╗
