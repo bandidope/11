@@ -31,22 +31,22 @@ const jadi = global.opts["jadibot"] || "jadibots"
 const path = `./${jadi}/${uniqid}`
 
 if (!await fs.existsSync(path)) {
-await conn.sendMessage(m.chat, { text: `*No tiene una sesiÃ³n activa, cree una utilizando:*\n${usedPrefix + command}\n\n*Si tiene una *(ID)* puede usar para saltarse el paso anterior usando:*\n*${usedPrefix + command}* \`\`\`(ID)\`\`\`` }, { quoted: m })
+await conn.sendMessage(m.chat, { text: `*No tiene una sesion activa, cree una utilizando:*\n${usedPrefix + command}\n\n*Si tiene una *(ID)* puede usar para saltarse el paso anterior usando:*\n*${usedPrefix + command}* \`\`\`(ID)\`\`\`` }, { quoted: m })
 return
 }
-if (global.conn.user.jid !== conn.user.jid) return conn.sendMessage(m.chat, {text: `ðŸŒ¼ *Utilice este comando con el bot principal*.\n\n*https://api.whatsapp.com/send/?phone=${global.conn.user.jid.split`@`[0]}&text=${usedPrefix + command}&type=phone_number&app_absent=0*`}, { quoted: m }) 
+if (global.conn.user.jid !== conn.user.jid) return conn.sendMessage(m.chat, {text: `tilice este comando con el bot principal*.\n\n*https://api.whatsapp.com/send/?phone=${global.conn.user.jid.split`@`[0]}&text=${usedPrefix + command}&type=phone_number&app_absent=0*`}, { quoted: m }) 
 else {
-await conn.sendMessage(m.chat, { text: `*ðŸŒ¼ La sesiÃ³n JadiBot fue eliminada*` }, { quoted: m })}
+await conn.sendMessage(m.chat, { text: ` La sesion JadiBot fue eliminada*` }, { quoted: m })}
 try {
 fs.rmdir(`./${jadi}/` + uniqid, { recursive: true, force: true })
-await conn.sendMessage(m.chat, { text : `*ðŸŒ¼ La sesiÃ³n fue cerrada.*` } , { quoted: m })
+await conn.sendMessage(m.chat, { text : ` La sesion fue cerrada.*` } , { quoted: m })
 } catch (e) {
 reportError(e)
 }  
 break
 
 case isCommand2:
-if (global.conn.user.jid == conn.user.jid) conn.reply(m.chat, `ðŸŒ¼ Si no tiene una sesiÃ³n de JadiBot envÃ­e mensaje al bot principal para convertirse en SUB`, m)
+if (global.conn.user.jid == conn.user.jid) conn.reply(m.chat, ` Si no tiene una sesion de JadiBot envia mensaje al bot principal para convertirse en SUB`, m)
 else {
 await conn.reply(m.chat, `ðŸŒ¼ ${global.botname || 'Bot'} Desactivado.`, m)
 conn.ws.close()}  
