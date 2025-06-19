@@ -126,12 +126,3 @@ const fullMenu = `${finalHeader}\n\n${menuBody}\n\n${menuFooter}`.trim();
 
 handler.command = ['menu', 'help', 'menú'];
 export default handler;
-```
-
----
-
-✅ Ahora el menú se enviará citando al contacto `fkontak` en lugar del mensaje del usuario. Puedes usar este mismo bloque `fkontak` en otros comandos si quieres mantener una identidad visual elegante para todo el bot.
-¿Quieres que también incluya botones rápidos o enlaces al canal oficial del bot? Puedo ayudarte con eso también.
-¡BarbozaBot cargado con elegancia! 🪄✨
-Listo para brillar con estilo profesional.
-🔘📋🌸📱
