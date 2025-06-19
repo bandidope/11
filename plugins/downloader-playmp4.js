@@ -51,7 +51,7 @@ let handler = async (m, { conn, args, text}) => {
 }
 };
 
-handler.help = ['play2 <consulta>'];
+handler.help = ['play2'];
 handler.tags = ['downloader'];
 handler.command = ["play2"];
 
