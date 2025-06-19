@@ -1,4 +1,3 @@
-
 const handler = async (m, { conn}) => {
     let mensaje = `
 🌟 *¡Bienvenido al Menú de Juegos!* 🎮🔥
@@ -57,7 +56,7 @@ const handler = async (m, { conn}) => {
 🎮 **¡La diversión no tiene límites!**
 `;
 
-        const imageurl = "https://i.ibb.co/LYZrgRs/The-Miku-Bot-MD.jpg";
+    const imageUrl = "https://i.ibb.co/LYZrgRs/The-Miku-Bot-MD.jpg";
 
     await conn.sendMessage(m.chat, {
         image: { url: imageUrl},
