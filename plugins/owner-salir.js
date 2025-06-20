@@ -1,21 +1,19 @@
 
 let handler = async (m, { conn, text}) => {
-  let groupId = text? text: m.chat;
-  let chat = global.db.data.chats[m.chat];
+  const groupId = text? text: m.chat;
 
   try {
     const mensaje = `
-🌸 *Miku Bot ha sido desconectada del grupo* 🌸
+🌸 *Miku Bot se despide del grupo* 🌸
 
-👋 Ha sido un placer estar aquí.
+👋 Ha sido un gusto estar con ustedes.
 `;
 
     await conn.sendMessage(groupId, { text: mensaje});
     await conn.groupLeave(groupId);
-    chat.welcome = true; // Restablecer configuración por si reingresa
 } catch (e) {
-    console.error('Error al salir del grupo:', e);
-    await m.reply('⚠️ Algo salió mal al intentar abandonar el grupo.');
+    console.error('🚫 Error al intentar abandonar el grupo:', e);
+    await m.reply('⚠️ Algo salió mal... No pude salir del grupo.');
 }
 };
 
