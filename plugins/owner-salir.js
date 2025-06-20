@@ -23,6 +23,3 @@ handler.command = /^(salir|leave|salirdelgrupo|leavegc)$/i;
 handler.group = true;
 handler.rowner = true;
 export default handler;
-```
-
-Este diseño mantiene la funcionalidad original pero le añade una despedida más amigable y una estructura clara. Si quieres que también envíe una imagen o sticker final antes de salir, lo puedo incluir con gusto 🌷✨
