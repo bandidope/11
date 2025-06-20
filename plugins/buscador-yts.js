@@ -25,7 +25,7 @@ let ytSearchHandler = async (m, { conn, text, usedPrefix, command }) => {
 
     // Enviar cada resultado por separado
     for (const video of videos) {
-      let caption = `⌘━─━─≪𓄂*Barboza*𝄢─━─━⌘\n\n`;
+      let caption = `⌘━─━─≪𓄂*Miku*𝄢─━─━⌘\n\n`;
       caption += `➷ Título: ${video.title}\n`;
       caption += `➷ Duración: ${video.timestamp || "Desconocida"}\n`;
       caption += `SI QUIERES DESCARGAR AUDIO/VIDEO USA LOS COMANDOS MAS LA URL DEL VIDEO\n`;
