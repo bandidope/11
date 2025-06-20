@@ -20,7 +20,9 @@
 Un proyecto colaborativo inspirado por la legendaria *Vocaloid Hatsune Miku*, fusionando tecnología, creatividad y cultura otaku. Este bot no es solo útil… ¡también tiene flow!
 
 👥 *Equipo de desarrollo*:
-- 👨‍💻 [Adrian](https://Wa.me/595976126756) [Bajo-Bots](https://Wa.me/573162402768) – 
+- 👨‍💻 [Adrian](https://Wa.me/595976126756)
+
+ [Bajo-Bots](https://Wa.me/573162402768) – 
 
 - 🌺 [¡Barboza!](https://wa.me/584146277368)
 
