@@ -104,7 +104,6 @@ global.loadChatgptDB = async function loadChatgptDB() {
 };
 loadChatgptDB();
 
-
 global.authFile = global.Sesion
 const {state, saveState, saveCreds} = await useMultiFileAuthState(global.authFile)
 const msgRetryCounterMap = (MessageRetryMap) => { }
