@@ -12,6 +12,5 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 
 handler.help = ['prefix'].map(v => v + ' [prefix]');
 handler.command = ['prefix'];
-handler.rowner = true;
 
 export default handler;
