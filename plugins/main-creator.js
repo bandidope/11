@@ -7,8 +7,8 @@ async function handler(m, { conn}) {
 
   let name = await conn.getName(ownerJid) || '🌸 Adrian Developer';
   let about = (await conn.fetchStatus(ownerJid).catch(() => {}))?.status || '💻 Creadora del bot *Miku Bot 🌸* y amante del desarrollo.';
-  let empresa = '✨ Software y Hosting Edradcloud';
-  let imagen = 'https://qu.ax/VGCPX.jpg';
+  let empresa = '✨ Software y Hosting ';
+  let imagen = 'https://qu.ax/VdOqJ.jpg';
 
   const caption = `
 ╔═══🌸 *INFORMACIÓN DE LA CREADORA* 🌸═══╗
