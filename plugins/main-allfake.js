@@ -104,7 +104,7 @@ var handler = async function (m, conn, db) {
             externalAdReply: { 
                 showAdAttribution: true, 
                 title: "Texto del bot", 
-                body: '🚀 ♡⃝Barboza𝒕ᚐ҉ᚐ', 
+                body: '🚀 Adrián ᚐ҉ᚐ', 
                 previewType: "PHOTO", 
                 thumbnailUrl: "https://qu.ax/QGAVS.jpg", 
                 sourceUrl: "https://whatsapp.com/channel/0029Vaua0ZD3gvWjQaIpSy18", 
