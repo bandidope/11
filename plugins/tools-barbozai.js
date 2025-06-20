@@ -35,8 +35,8 @@ const handler = async (m, { conn, args }) => {
   }
 };
 
-handler.command = ['barbozai'];
-handler.help = ['barbozai <texto>'];
+handler.command = ['miku'];
+handler.help = ['miku <texto>'];
 handler.tags = ['image'];
 
 export default handler;
