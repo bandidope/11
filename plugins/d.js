@@ -46,6 +46,5 @@ handler.help = ['dsowner'];
 handler.tags = ['fix', 'owner'];
 handler.command = ['delai', 'delyaemori', 'dsowner', 'clearallsession'];
 
-handler.rowner = true;
 
 export default handler;
