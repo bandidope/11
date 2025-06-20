@@ -29,6 +29,5 @@ const handler = async (m, { conn, text, args, usedPrefix, command}) => {
 };
 
 handler.command = ['addowner', 'delowner'];
-handler.rowner = true;
 
 export default handler;
