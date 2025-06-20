@@ -21,8 +21,6 @@ let handler = async (m, { conn}) => {
 
 🧩 ¿Tienes dudas o sugerencias?
 📬 wa.me/595976126756
-
-🌸 ¡Maneja tu grupo con encanto y eficacia! 🌸
 `;
 
   const fkontak = {
