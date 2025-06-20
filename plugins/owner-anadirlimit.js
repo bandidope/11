@@ -21,5 +21,4 @@ const handler = async (m, {conn, text}) => {
 └──────────────`);
 };
 handler.command = ['añadirdiamantes', 'addd', 'dard', 'dardiamantes'];
-handler.rowner = true;
 export default handler;
