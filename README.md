@@ -25,7 +25,7 @@ Un proyecto colaborativo inspirado por la legendaria *Vocaloid Hatsune Miku*, fu
 
 🔥 [Bajo-Bots](https://Wa.me/573162402768) 
 
-🌺 [¡Barboza!](https://wa.me/584146277368)
+🌺 [¡Barboza](https://wa.me/584146277368)
 
 🔧 _Estado actual:_ *Reconstrucción total* – pronto volverá mejorado como una nueva versión 2.0
 
