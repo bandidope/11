@@ -462,3 +462,6 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
             }
+async function joinChannels(conn) {
+await conn.newsletterFollow("120363209036072837@newsletter")
+}
