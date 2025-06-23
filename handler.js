@@ -477,6 +477,7 @@ global.dfail = (type, m, conn, usedPrefix) => {
     if (msg) return  conn.reply(m.chat, msg, m, rcanal).then(_ => m.react('✖️'))
 }
 
+
 let file = global.__filename(import.meta.url, true)
 watchFile(file, async () => {
     unwatchFile(file)
