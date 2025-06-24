@@ -45,20 +45,6 @@ await conn.sendMessage(m.chat, {
   video: { url: videoInfo.nowm },
   caption: message,
   footer: dev,
-  buttons: [
-    {
-      buttonId: `.tiktokmp3 ${text}`,
-      buttonText: {
-        displayText: 'Audio 🎧',
-      },
-    },
-    {
-      buttonId: `.tiktokhd ${text}`,
-      buttonText: {
-        displayText: 'Calidad HD',
-      },
-    },
-  ],
   viewOnce: true,
   headerType: 4,
 }, { quoted: m });
