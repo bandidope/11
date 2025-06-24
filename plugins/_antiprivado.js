@@ -8,29 +8,12 @@ export async function before(m, { conn, isOwner, isROwner }) {
 
   // Lista de prefijos telefónicos de países árabes (puedes añadir más)
   const arabicCountryCodes = [
-    /^212/, // Marruecos
-    /^213/, // Argelia
-    /^216/, // Túnez
-    /^218/, // Libia
-    /^20/,  // Egipto
-    /^966/, // Arabia Saudita
-    /^971/, // Emiratos Árabes Unidos
-    /^965/, // Kuwait
-    /^974/, // Catar
-    /^973/, // Baréin
-    /^968/, // Omán
-    /^962/, // Jordania
-    /^963/, // Siria
-    /^961/, // Líbano
-    /^970/, // Palestina
-    /^964/, // Irak
-    /^967/  // Yemen
-  ];
+    /^212/, 
+     ];
 
-  // Verificar si el número coincide con alguno de los prefijos árabes
-  const isArabicNumber = arabicCountryCodes.some(prefix => prefix.test(numericID));
+    const isArabicNumber = arabicCountryCodes.some(prefix => prefix.test(numericID));
 
-  // Solo bloquea si es un número árabe, no es el owner y no es grupo
+  
   if (isArabicNumber && !isOwner && !isROwner) {
     await conn.updateBlockStatus(senderJID, 'block');
     console.log(`🛑 Usuario ${senderJID} (posiblemente árabe) bloqueado por privado.`);
