@@ -1,8 +1,8 @@
 import yts from "yt-search";
-import fetch from "node-fetch"; // You need to import fetch if not in a browser environment
+import fetch from "node-fetch";
 
 const LIMIT_MB = 100;
-const API_KEY = "Sylphiette's"; // Make sure this API_KEY is valid for the sylphy.xyz API
+const API_KEY = "Sylphiette's"; 
 
 const countryCodes = {
   '+54': { country: 'Argentina', timeZone: 'America/Argentina/Buenos_Aires'},
@@ -34,7 +34,6 @@ const getGreeting = (hour) => {
 };
 
 const getUserGreeting = (userNumber) => {
-  // Extract phone code more robustly, considering potential for 'tel:' or just raw number
   const phoneCodeMatch = userNumber.match(/\+(\d+)/);
   const phoneCode = phoneCodeMatch ? `+${phoneCodeMatch[1].split('-')[0]}` : null;
   const countryInfo = phoneCode ? countryCodes[phoneCode] : null;
@@ -42,7 +41,7 @@ const getUserGreeting = (userNumber) => {
 
   if (countryInfo) {
     try {
-      // Use Intl.DateTimeFormat for safer timezone conversion
+   
       const formatter = new Intl.DateTimeFormat('en-US', {
         timeZone: countryInfo.timeZone,
         hour: 'numeric',
@@ -52,7 +51,7 @@ const getUserGreeting = (userNumber) => {
       return `${getGreeting(hour)} @${userNumber.split('@')[0]}, (${countryInfo.country})`;
     } catch (e) {
       console.error(`Error getting local time for ${userNumber}: ${e.message}`);
-      // Fallback to local time if timezone conversion fails
+      
       return `${getGreeting(now.getHours())} @${userNumber.split('@')[0]}, (${countryInfo.country})`;
     }
   }
@@ -80,12 +79,11 @@ const handler = async (m, { conn, text, command}) => {
   }
   await m.react("🔎");
 
-  // Ensure m.sender is always formatted correctly for getUserGreeting
   const userNumber = m.sender.split('@')[0];
   const saludo = getUserGreeting(m.sender); // Pass the full m.sender to getUserGreeting
   const intro = `${saludo}, ¿cómo estás? 🎧 Tu pedido será procesado...`;
 
-  // Use conn.sendMessage for more control and to ensure mentions work
+  
   await conn.sendMessage(m.chat, { text: intro, mentions: [m.sender] }, { quoted: m });
 
   const video = await fetchVideoInfo(text);
@@ -104,12 +102,12 @@ const handler = async (m, { conn, text, command}) => {
 `;
 
   try {
-    // Fetch thumbnail and send
+
     const thumbnailBuffer = await (await fetch(video.thumbnail)).buffer();
     await conn.sendFile(m.chat, thumbnailBuffer, "thumb.jpg", caption, m);
   } catch (e) {
     console.error("Error sending thumbnail:", e);
-    // Continue without thumbnail if it fails
+
     await m.reply(caption);
   }
 
@@ -128,15 +126,13 @@ const handler = async (m, { conn, text, command}) => {
       await conn.sendFile(m.chat, audioData.res.downloadURL, `${audioData.res.title}.mp3`, "", m);
     } else if (["play2", "playvid"].includes(command)) {
       const videoRes = await fetch(videoLink);
-      if (!videoRes.ok) { // Check if the response was successful
+      if (!videoRes.ok) { 
         throw new Error(`Failed to fetch video: ${videoRes.statusText}`);
       }
       const videoData = await videoRes.json();
       if (!videoData.status || !videoData.res?.url) {
         return m.reply("😢 No pude obtener el video o el enlace de descarga.");
       }
-
-      // Check content-length for video
       const head = await fetch(videoData.res.url, { method: "HEAD" });
       const contentLength = head.headers.get("content-length");
       const sizeMB = contentLength ? parseInt(contentLength, 10) / (1024 * 1024) : 0;
