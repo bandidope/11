@@ -43,7 +43,7 @@ handler.tags = ['group'];
 handler.command = ['add', 'agregar', 'añadir'];
 handler.group = true;
 handler.admin = true;
-handler.botAdmin = true;
+handler.botAdmin = false;
 handler.fail = null;
 
 export default handler;
