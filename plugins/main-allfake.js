@@ -41,13 +41,13 @@ var handler = async function (m, conn, db) {
     let pushname = m.pushName || 'Sin nombre'
 
     // Datos generales del bot
-    let creador = 'Wa.me/595976126756'
+    let creador = 'Wa.me/51936994155'
     let ofcbot = conn.user.jid.split('@')[0]
-    let asistencia = 'Wa.me/595976126756'
+    let asistencia = 'Wa.me/51936994155'
 
     // Lista de canales
-    let canalIdM = ["120363414007802886@newsletter", "120363414007802886@newsletter"]
-    let canalNombreM = ["bot Miku", "✧┊┋◟🚀Miku-Bot🚀◞┊┋✧"]
+    let canalIdM = ["120363419947391620@newsletter", "120363419947391620@newsletter"]
+    let canalNombreM = ["𝗫𝗶𝘁𝗲𝗿𝘀 𝗕𝗼𝘁 🔱", "𝗫𝗶𝘁𝗲𝗿𝘀 𝗕𝗼𝘁 🔱"]
     
     async function getRandomChannel() {
         let randomIndex = Math.floor(Math.random() * canalIdM.length)
@@ -71,7 +71,7 @@ var handler = async function (m, conn, db) {
     const rimg = await response.buffer()
 
     // Mensajes de espera
-    let wait = '🕒 *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠𝗼𝗺𝗲𝗻𝘁𝗼, 𝗦𝗼𝘆 𝗟𝗲𝗻𝘁𝗮 ...*'
+    let wait = '🕒 *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠𝗼𝗺𝗲𝗻𝘁𝗼, 𝗦𝗼𝘆 𝗟𝗲𝗻𝘁𝗼 ...*'
 
     // Tags
     let taguser = '@' + m.sender.split("@s.whatsapp.net")
@@ -104,10 +104,10 @@ var handler = async function (m, conn, db) {
             externalAdReply: { 
                 showAdAttribution: true, 
                 title: "Texto del bot", 
-                body: '🚀 Adrián ᚐ҉ᚐ', 
+                body: '𝗫𝗶𝘁𝗲𝗿𝘀 𝗕𝗼𝘁 🔱', 
                 previewType: "PHOTO", 
-                thumbnailUrl: "https://qu.ax/QGAVS.jpg", 
-                sourceUrl: "https://whatsapp.com/channel/0029Vaua0ZD3gvWjQaIpSy18", 
+                thumbnailUrl: "https://qu.ax/tqNbW.jfif", 
+                sourceUrl: "https://whatsapp.com/channel/0029Vb5oUp43LdQUVViHwc0m", 
                 mediaType: 1, 
                 renderLargerThumbnail: false 
             }
