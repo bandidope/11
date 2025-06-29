@@ -28,7 +28,8 @@ var handler = async (m, { conn, args, usedPrefix, command }) => {
 handler.help = ['group abrir / cerrar'];
 handler.tags = ['grupo'];
 handler.command = /^(group|grupo)$/i;
+handler.group = true;
 handler.admin = true;
-handler.botAdmin = true;
+handler.botAdmin = false;
 
 export default handler;
