@@ -9,9 +9,9 @@ conn.reply(m.chat, `*LA DESPEDIDA DEL GRUPO HA SIDO CONFIGURADA*`, m)
 }
 }
 
-handler.help = ['setbye @user + texto']
+handler.help = ['setwelcome @user + texto']
 handler.tags = ['group']
-handler.command = ['setbye', 'despedida'] 
+handler.command = ['setwelcome', 'despedida'] 
 handler.botAdmin = false
 handler.admin = true
 handler.group = true
