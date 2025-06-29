@@ -3,7 +3,7 @@ import { generateWAMessageFromContent} from '@whiskeysockets/baileys';
 const handler = async (m, { conn, text, participants}) => {
   try {
     const users = participants.map(u => conn.decodeJid(u.id));
-    const sello = '\n\n— 〘 🌸 𝙈𝙞𝙠𝙪 ✦ 𝘽𝙤𝙩  🌸 〙';
+    const sello = '\n\n— 𝗫𝗶𝘁𝗲𝗿𝘀 𝗕𝗼𝘁 🔱';
 
     const q = m.quoted? m.quoted: m;
     const c = m.quoted? await m.getQuotedObj(): m;
@@ -26,7 +26,7 @@ const handler = async (m, { conn, text, participants}) => {
     const q = m.quoted || m;
     const mime = (q.msg || q).mimetype || '';
     const isMedia = /image|video|sticker|audio/.test(mime);
-    const sello = '\n\n— 𝑬𝒏𝒗𝒊𝒂𝒅𝒐 𝒑𝒐𝒓: *Miku Bot 🌸*';
+    const sello = '\n\n— 𝑬𝒏𝒗𝒊𝒂𝒅𝒐 𝒑𝒐𝒓: 𝗫𝗶𝘁𝗲𝗿𝘀 𝗕𝗼𝘁 🔱';
 
     if (isMedia) {
       const mediax = await q.download?.();
@@ -62,6 +62,7 @@ handler.help = ['hidetag'];
 handler.tags = ['group'];
 handler.command = /^(hidetag|notify|notificar|noti|n|hidetah|hidet)$/i;
 handler.group = true;
-handler.botAdmin = true;
+handler.Admin = true;
+handler.botAdmin = false;
 
 export default handler;
