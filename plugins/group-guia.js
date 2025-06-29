@@ -20,7 +20,7 @@ let handler = async (m, { conn}) => {
 📜 _.menu_ — Ver todos los comandos
 
 🧩 ¿Tienes dudas o sugerencias?
-📬 wa.me/595976126756
+📬 wa.me/51936994155
 `;
 
   const fkontak = {
