@@ -8,10 +8,10 @@ const clockString = ms => {
   return [h, m, s].map(v => v.toString().padStart(2, '0')).join(':');
 };
 
-const imagen = "https://i.ibb.co/LYZrgRs/The-Miku-Bot-MD.jpg";
+const imagen = "https://qu.ax/tqNbW.jfif";
 
 const menuHeader = `
-╭━━━「 🌸 The-MikuBot-MD 」━━━╮
+╭━━━「 🔱 Xiters Bot Menu 🔱 」━━━╮
 ┃ ¡Hola, %name!
 ┃ Nivel: %level | XP: %exp/%max
 ┃ Límite: %limit | Modo: %mode
@@ -96,7 +96,7 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
           const plugin = Object.values(global.plugins).find(p => Array.isArray(p.help)? p.help.includes(cmd): p.help === cmd);
           const premium = plugin?.premium? '💎': '';
           const limited = plugin?.limit? '🌀': '';
-          return `│ 🌸 _${_p}${cmd}_ ${premium}${limited}`.trim();
+          return `│ 🔱 _${_p}${cmd}_ ${premium}${limited}`.trim();
 }).join('\n');
         return `╭─「 ${title} 」\n${entries}\n${sectionDivider}`;
 }).join('\n\n');
