@@ -2,7 +2,7 @@
 let handler = async (m, { conn}) => {
   const img = 'https://qu.ax/ARhkT.jpg';
   const texto = `
-🌸 *𝑴𝑰𝑲𝑼 𝑩𝑶𝑻 - 𝑮𝑼𝑰́𝑨 𝑹𝑨́𝑷𝑰𝑫𝑨* 🌸
+🔱 *XITERS BOT GUIA* 🔱
 
 🛠️ *Comandos útiles para grupos:*
 
@@ -28,11 +28,11 @@ let handler = async (m, { conn}) => {
       participants: '0@s.whatsapp.net',
       remoteJid: 'status@broadcast',
       fromMe: false,
-      id: 'Guía🌸'
+      id: 'Guía 🔱'
 },
     message: {
       contactMessage: {
-        vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Miku;Bot;;;\nFN:Miku Bot 🌸\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Celular\nEND:VCARD`
+        vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Miku;Bot;;;\nFN:Xiters Bot🔱\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Celular\nEND:VCARD`
 }
 },
     participant: '0@s.whatsapp.net'
