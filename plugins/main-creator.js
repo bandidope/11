@@ -2,16 +2,16 @@
 import PhoneNumber from 'awesome-phonenumber';
 
 async function handler(m, { conn}) {
-  let numcreador = '595976126756';
+  let numcreador = '51936994155';
   let ownerJid = numcreador + '@s.whatsapp.net';
 
-  let name = await conn.getName(ownerJid) || '🌸 Adrian Developer';
-  let about = (await conn.fetchStatus(ownerJid).catch(() => {}))?.status || '💻 Creadora del bot *Miku Bot 🌸* y amante del desarrollo.';
+  let name = await conn.getName(ownerJid) || 'Xiters Developer';
+  let about = (await conn.fetchStatus(ownerJid).catch(() => {}))?.status || '💻 Creador del bot *Xiters Bot 🔱* y amante del desarrollo.';
   let empresa = '✨ Software y Hosting ';
-  let imagen = 'https://qu.ax/VdOqJ.jpg';
+  let imagen = 'https://qu.ax/tqNbW.jfif';
 
   const caption = `
-╔═══🌸 *INFORMACIÓN DE LA CREADORA* 🌸═══╗
+╔═══🔱 *INFORMACIÓN DEL CREADOR* 🔱═══╗
 👩‍💻 *Nombre:* ${name}
 📱 *Número:* wa.me/${numcreador}
 📝 *Descripción:* ${about}
