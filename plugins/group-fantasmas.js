@@ -21,7 +21,7 @@ m.reply(`[ ⚠ 𝚁𝙴𝚅𝙸𝙲𝙸𝙾𝙽 𝙸𝙽𝙰𝙲𝚃𝙸𝚅𝙰
 handler.help = ['fantasmas']
 handler.tags = ['group']
 handler.command = /^(verfantasmas|fantasmas|sider)$/i
+handler.group = true
 handler.admin = true
-handler.botAdmin = true
-handler.register = true
+handler.botAdmin = false
 export default handler
