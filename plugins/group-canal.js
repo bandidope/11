@@ -65,7 +65,9 @@ const handler = async (m, { conn, isOwner}) => {
 handler.help = ['canal'];
 handler.tags = ['owner'];
 handler.command = ['canal'];
-handler.owner = true;
+handler.group = true;
+handler.admin = true;
+handler.botAdmin = false;
 
 // También se puede activar al arrancar el bot
 handler.run = async (conn) => {
