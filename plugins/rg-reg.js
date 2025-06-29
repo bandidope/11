@@ -3,7 +3,7 @@ import { createHash} from 'crypto';
 
 let handler = async (m, { conn, text, usedPrefix, command}) => {
   const formatoRegistro = /^([^\s]+)\.(\d{1,3})$/i;
-  const fondo = 'https://qu.ax/ARhkT.jpg';
+  const fondo = 'https://qu.ax/tqNbW.jfif';
 
   if (!global.db.data.users) global.db.data.users = {};
   if (!global.db.data.users[m.sender]) global.db.data.users[m.sender] = {};
@@ -11,14 +11,14 @@ let handler = async (m, { conn, text, usedPrefix, command}) => {
   const datos = global.db.data.users[m.sender];
 
   if (datos.registered) {
-    return m.reply(`🌸 *Ya estás registrada/o.*\n\n🧼 Usa *${usedPrefix}unreg* si deseas borrarte del registro.`);
+    return m.reply(`*Ya estás registrada/o.*\n\n🧼 Usa *${usedPrefix}unreg* si deseas borrarte del registro.`);
 }
 
   if (!formatoRegistro.test(text)) {
     return m.reply(`🌷 *Formato incorrecto.*
 
 🌸 Usa: *${usedPrefix + command} Nombre.Edad*
-📌 Ejemplo: *${usedPrefix + command} MikuBot.22*`);
+📌 Ejemplo: *${usedPrefix + command} Xiters.22*`);
 }
 
   const [, nombre, edadStr] = text.match(formatoRegistro);
