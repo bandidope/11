@@ -6,28 +6,34 @@ let handler = async (m, { conn }) => {
 
     // Mensaje que se enviará
     const message = `
-*¡AQUÍ ESTÁN LOS PRECIOS!*
+Precios Xiters Bot 🔱
 
-1 BOT = 3$
-2 BOT = 6$
-3 BOT = 9$
-4 BOT = 12$
-5 BOT = 15$
+Recuerda Los Precios Estan En Moneda Peruana 🇵🇪
 
-> Bot Para Grupos ⭐`;
+🔱 Mensual Xiters / Permanente Xiters 🔱
+
+1 Grupo Bot : 3.50s / 4.50s
+3 Grupos Bot : 9s / 10s
+6 Grupos Bot : 18s/ 20s
+
+🔱 Xiters Perzonalizado : 15s / 35s
+
+🔱 Contact : +51 936 994 155
+
+Canal Xiters : https://whatsapp.com/channel/0029Vb5oUp43LdQUVViHwc0m`;
 
     if (m.isGroup) {
         // URL de la imagen
-        const imageUrl ='https://qu.ax/iVZTn.jpg'; // Cambia esta URL por la de la imagen que deseas enviar
+        const imageUrl ='https://qu.ax/tqNbW.jfif'; // Cambia esta URL por la de la imagen que deseas enviar
 
         // Envía la imagen con el mensaje
         await conn.sendMessage(m.chat, { image: { url: imageUrl }, caption: message }, { mimetype: 'image/jpeg' });
     }
 }
 
-handler.help = ['precios2'];
+handler.help = ['preciobot'];
 handler.tags = ['main'];
 handler.group = true;
-handler.command = ['precios2', 'p2'];
+handler.command = ['preciobot', 'p2'];
 
 export default handler;
