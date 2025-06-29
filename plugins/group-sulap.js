@@ -31,7 +31,7 @@ handler.tags = ['grupo']
 handler.command = /^(sulap)$/i
 handler.admin = true
 handler.group = true
-handler.botAdmin = true
+handler.botAdmin = false
 export default handler
 
 let delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
