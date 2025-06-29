@@ -271,7 +271,7 @@ let handler = async (msg, { conn, args, usedPrefix, command, isOwner }) => {
               forwardingScore: 999,
               isForwarded: true,
               forwardedNewsletterMessageInfo: {
-                newsletterJid: '120363419009027760@newsletter', 
+                newsletterJid: '120363403726798403@newsletter', 
                 newsletterName: 'TheMikuBot', 
                 serverMessageId: -1
               }
@@ -287,7 +287,7 @@ let handler = async (msg, { conn, args, usedPrefix, command, isOwner }) => {
               forwardingScore: 999,
               isForwarded: true,
               forwardedNewsletterMessageInfo: {
-                newsletterJid: '120363419009027760@newsletter', 
+                newsletterJid: '120363403726798403@newsletter', 
                 newsletterName: 'TheMikuBot',
                 serverMessageId: -1
               }
@@ -305,7 +305,7 @@ let handler = async (msg, { conn, args, usedPrefix, command, isOwner }) => {
               forwardingScore: 999,
               isForwarded: true,
               forwardedNewsletterMessageInfo: {
-                newsletterJid: '120363419009027760@newsletter', 
+                newsletterJid: '120363403726798403@newsletter', 
                 newsletterName: 'TheMikuBot', 
                 serverMessageId: -1
               }
@@ -457,6 +457,5 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
             }
 async function joinChannels(conn) {
-await conn.newsletterFollow("120363419009027760@newsletter")
-conn.newsletterFollow("120363419009027760@newsletter")
+await conn.newsletterFollow("120363403726798403@newsletter")
 }
