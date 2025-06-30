@@ -27,6 +27,8 @@ let handler = async (m, { isPrems, conn }) => {
 };
 
 handler.command = ['nexterra']; 
-handler.register = true;
+handler.tags = ['freefireeu', 'freefire']
+handler.botAdmin = false;
 handler.admin = true;
+handler.group = true;
 export default handler;

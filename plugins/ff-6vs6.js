@@ -1,18 +1,35 @@
-let inscritos6vs6 = []
+const handler = async (m, { conn, args }) => {
+    // Verificar si se proporcionaron los argumentos necesarios
 
-const handler = async (m, { conn, args, command, usedPrefix }) => {
-    if (!args[0]) {
-        const texto = `
-*6 𝐕𝐄𝐑𝐒𝐔𝐒 6*
+    // Validar el formato de la hora
+    const horaRegex = /^([01]\d|2[0-3]):?([0-5]\d)$/;
+    if (!horaRegex.test(args[0])) {
+        conn.reply(m.chat, '_Formato de hora incorrecto. Debe ser HH:MM en formato de 24 horas._', m);
+        return;
+    }
 
-⏱ 𝐇𝐎𝐑𝐀𝐑𝐈𝐎                   •
-🇲🇽 𝐌𝐄𝐗𝐈𝐂𝐎 : 
-🇨🇴 𝐂𝐎𝐋𝐎𝐌𝐁𝐈𝐀 : 
+    const horaUsuario = args[0]; // Hora proporcionada por el usuario
 
-➥ 𝐌𝐎𝐃𝐀𝐋𝐈𝐃𝐀𝐃: 
-➥ 𝐉𝐔𝐆𝐀𝐃𝐎𝐑𝐄𝐒:
+    // Calcular la hora adelantada
+    const horaUsuarioSplit = horaUsuario.split(':');
+    let horaAdelantada = '';
+    if (horaUsuarioSplit.length === 2) {
+        const horaNumerica = parseInt(horaUsuarioSplit[0], 10);
+        const minutoNumerico = parseInt(horaUsuarioSplit[1], 10);
+        const horaAdelantadaNumerica = horaNumerica + 1; // Adelantar 1 hora
+        horaAdelantada = `${horaAdelantadaNumerica.toString().padStart(2, '0')}:${minutoNumerico.toString().padStart(2, '0')}`;
+    }
 
-      𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 1
+    const message = `
+    _*6 Versus 6*_
+    
+    𝐇𝐎𝐑𝐀𝐑𝐈𝐎
+    🇲🇽 𝐌𝐄𝐗 : ${horaUsuario}
+    🇨🇴 𝐂𝐎𝐋 : ${horaAdelantada}
+
+    ¬ 𝐉𝐔𝐆𝐀𝐃𝐎𝐑𝐄𝐒 𝐏𝐑𝐄𝐒𝐄𝐍𝐓𝐄𝐒
+    
+          𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 1
     
     👑 ┇ 
     🥷🏻 ┇  
@@ -20,61 +37,19 @@ const handler = async (m, { conn, args, command, usedPrefix }) => {
     🥷🏻 ┇ 
     🥷🏻 ┇ 
     🥷🏻 ┇ 
-    
-    ʚ 𝐒𝐔𝐏𝐋𝐄𝐍𝐓𝐄𝐒:
+
+    ㅤʚ 𝐒𝐔𝐏𝐋𝐄𝐍𝐓𝐄:
     🥷🏻 ┇ 
     🥷🏻 ┇
+    `.trim();
 
-𝗣𝗔𝗥𝗧𝗜𝗖𝗜𝗣𝗔𝗡𝗧𝗘𝗦 𝗔𝗡𝗢𝗧𝗔𝗗𝗢𝗦:
-${inscritos6vs6.length === 0 ? 'Ninguno aún.' : inscritos6vs6.map((n, i) => `${i + 1}. ${n}`).join('\n')}
-        `.trim()
-
-        const buttons = [
-            {
-                buttonId: `${usedPrefix}6vs6 anotar`,
-                buttonText: { displayText: "✏️ Anotarse" },
-                type: 1,
-            },
-            {
-                buttonId: `${usedPrefix}6vs6 limpiar`,
-                buttonText: { displayText: "🗑 Limpiar Lista" },
-                type: 1,
-            },
-        ]
-
-        await conn.sendMessage(
-            m.chat,
-            {
-                text: texto,
-                buttons,
-                viewOnce: true,
-            },
-            { quoted: m }
-        )
-        return
-    }
-
-    if (args[0].toLowerCase() === 'anotar') {
-        const nombre = m.pushName || 'Usuario'
-        if (inscritos6vs6.includes(nombre)) {
-            return m.reply('❗Ya estás anotado.')
-        }
-        inscritos6vs6.push(nombre)
-        await m.reply(`✅ *${nombre}* ha sido anotado.\nAhora hay *${inscritos6vs6.length}* participante(s).`)
-        return
-    }
-
-    if (args[0].toLowerCase() === 'limpiar') {
-        inscritos6vs6 = []
-        await m.reply('🧹 Lista limpiada con éxito.')
-        return
-    }
-}
-
-handler.command = /^6vs6$/i
+    conn.sendMessage(m.chat, {text: message}, {quoted: m});
+};
 handler.help = ['6vs6']
-handler.tags = ['freefire']
-handler.group = true
-handler.admin = true
+handler.tags = ['freefireeu']
+handler.command = /^(6vs6)$/i;
+handler.botAdmin = false;
+handler.admin = true;
+handler.group = true;
 
-export default handler
+export default handler;

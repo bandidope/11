@@ -21,16 +21,16 @@ const handler = async (m, { conn, args }) => {
     if (horaUsuarioSplit.length === 2) {
         const horaNumerica = parseInt(horaUsuarioSplit[0], 10);
         const minutoNumerico = parseInt(horaUsuarioSplit[1], 10);
-        const horaAdelantadaNumerica = horaNumerica + 1; // Adelantar 1 hora
+        const horaAdelantadaNumerica = horaNumerica + 2; // Adelantar 1 hora
         horaAdelantada = `${horaAdelantadaNumerica.toString().padStart(2, '0')}:${minutoNumerico.toString().padStart(2, '0')}`;
     }
 
     const message = `
     _*CUADRILATERO*_
     
-    𝐇𝐎𝐑𝐀𝐑𝐈𝐎
-    🇲🇽 𝐌𝐄𝐗 : ${horaUsuario}
-    🇨🇴 𝐂𝐎𝐋 : ${horaAdelantada}
+    𝐇𝐎𝐑𝐀𝐑𝐈?
+    🇵🇪 𝐏𝐄𝐑𝐔 : ${horaUsuario}
+    🇦🇷 𝐀𝐑𝐆 : ${horaAdelantada}
     𝐂𝐎𝐋𝐎𝐑 𝐃𝐄 𝐑𝐎𝐏𝐀: ${colorRopa}
 
     ¬ 𝐉𝐔𝐆𝐀𝐃𝐎𝐑𝐄𝐒 𝐏𝐑𝐄𝐒𝐄𝐍𝐓𝐄𝐒
@@ -63,9 +63,9 @@ const handler = async (m, { conn, args }) => {
 
     conn.sendMessage(m.chat, {text: message}, {quoted: m});
 };
-handler.help = ['cuadrilatero']
-handler.tags = ['freefireeu']
-handler.command = /^(cuadrilatero)$/i;
+handler.help = ['cuadri']
+handler.tags = ['freefire']
+handler.command = /^(cuadri)$/i;
 handler.botAdmin = false;
 handler.admin = true;
 handler.group = true;

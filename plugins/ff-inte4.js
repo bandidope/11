@@ -1,7 +1,7 @@
 const handler = async (m, { conn, args }) => {
     // Verificar si se proporcionaron los argumentos necesarios
     if (args.length < 2) {
-        conn.reply(m.chat, 'Debes proporcionar la hora (HH:MM) y el país (MX, CO).', m);
+        conn.reply(m.chat, 'Debes proporcionar la hora (HH:MM) y el país (Pe, Arg).', m);
         return;
     }
 
@@ -17,12 +17,12 @@ const handler = async (m, { conn, args }) => {
 
     // Definir la diferencia horaria de cada país con respecto a México
     const diferenciasHorarias = {
-        MX: 0, // México tiene la misma hora
-        CO: 1, // Colombia tiene una hora más
+        Pe: 0, // México tiene la misma hora
+        Arg: 2, // Colombia tiene una hora más
     };
 
     if (!(pais in diferenciasHorarias)) {
-        conn.reply(m.chat, 'País no válido. Usa MX para México, CO para Colombia.', m);
+        conn.reply(m.chat, 'País no válido. Usa Pe para Peru, Arg para Argentina.', m);
         return;
     }
 
@@ -56,10 +56,11 @@ const handler = async (m, { conn, args }) => {
               *INTERNA*
 ╰──────⚔──────╯
 
-🇲🇽 𝐌𝐄𝐗𝐈𝐂𝐎 : ${formatTime(horasEnPais[0])}
-🇨🇴 𝐂𝐎𝐋𝐎𝐌𝐁𝐈𝐀 : ${formatTime(horasEnPais[1])}
+𝐇𝐎𝐑𝐀𝐑𝐈𝐎
+🇵🇪 𝐏𝐄𝐑𝐔 : ${formatTime(horasEnPais[0])}
+🇦🇷 𝐀𝐑𝐆 : ${formatTime(horasEnPais[1])}
 
-𝐇𝐎𝐑𝐀 𝐀𝐂𝐓𝐔𝐀𝐋 𝐄𝐍 𝐌𝐄𝐗𝐈𝐂𝐎🇲🇽 : ${horaActual}
+𝐇𝐎𝐑𝐀 𝐀𝐂𝐓𝐔𝐀𝐋 𝐄𝐍 𝐏𝐄𝐑𝐔 🇵🇪 : ${horaActual}
 
 𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 1
 
@@ -82,9 +83,9 @@ const handler = async (m, { conn, args }) => {
 
     conn.sendMessage(m.chat, { text: message }, { quoted: m });
 };
-handler.help = ['interna4']
-handler.tags = ['freefireeu']
-handler.command = /^(interna4)$/i;
+handler.help = ['inte4 < 4 vs 4 internp>']
+handler.tags = ['freefire']
+handler.command = /^(inte4)$/i;
 handler.botAdmin = false;
 handler.admin = true;
 handler.group = true;
