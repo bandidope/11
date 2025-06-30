@@ -1,47 +1,39 @@
-import { readdirSync, unlinkSync, existsSync, promises as fs, rmSync } from 'fs'
-import path from 'path'
+/* Codigo hecho por @Fabri115 y mejorado por BrunoSobrino */
 
-var handler = async (m, { conn, usedPrefix }) => {
+import { readdirSync, unlinkSync, existsSync, promises as fs, rmSync } from 'fs';
+import path from 'path';
 
-if (global.conn.user.jid !== conn.user.jid) {
-return conn.reply(m.chat, '🚩 *Utiliza este comando directamente en el número principal del Bot*', m, rcanal, )
-}
-await conn.reply(m.chat, '🚩 *Iniciando proceso de eliminación de todos los archivos de sesión, excepto el archivo creds.json...*', m, rcanal, )
-m.react('❄️')
-
-let sessionPath = './Sesiones/Principal/'
-
-try {
-
-if (!existsSync(sessionPath)) {
-return await conn.reply(m.chat, '🚩 *La carpeta está vacía*', m, rcanal, )
-}
-let files = await fs.readdir(sessionPath)
-let filesDeleted = 0
-for (const file of files) {
-if (file !== 'creds.json') {
-await fs.unlink(path.join(sessionPath, file))
-filesDeleted++;
-}
-}
-if (filesDeleted === 0) {
-await conn.reply(m.chat, '🚩 *La carpeta esta vacía*',  m, rcanal, )
-} else {
-m.react('✅')
-await conn.reply(m.chat, `🚩 *Se eliminaron ${filesDeleted} archivos de sesión, excepto el archivo creds.json*`,  m, rcanal, )
-conn.reply(m.chat, `🚩 *¡Hola! ¿logras verme?*`, m, rcanal, )
-
-}
-} catch (err) {
-console.error('Error al leer la carpeta o los archivos de sesión:', err);
-await conn.reply(m.chat, '🚩 *Ocurrió un fallo*',  m, rcanal, )
-}
-
-}
-handler.help = ['dsowner']
-handler.tags = ['fix', 'owner']
-handler.command = /^(delzero|dsowner|clearallsession)$/i
-
-handler.rowner = false
-
-export default handler
+const handler = async (m, { conn, usedPrefix }) => {
+  if (global.conn.user.jid !== conn.user.jid) {
+    return conn.sendMessage(m.chat, {text: '> Solamente Lo Puede Usar Mi Creador 🇦🇱'}, {quoted: m});
+  }
+  await conn.sendMessage(m.chat, {text: '> AntiBug2 Activado , Iniciando Proceso'}, {quoted: m});
+  const sessionPath = './Sesiones/Principal/';
+  try {
+    if (!existsSync(sessionPath)) {
+      return await conn.sendMessage(m.chat, {text: '> La Carpeta Session Esta Vacia O No Existe, Fijese Que La Carpeta Sea La Correcta'}, {quoted: m});
+    }
+    const files = await fs.readdir(sessionPath);
+    let filesDeleted = 0;
+    for (const file of files) {
+      if (file !== 'creds.json') {
+        await fs.unlink(path.join(sessionPath, file));
+        filesDeleted++;
+      }
+    }
+    if (filesDeleted === 0) {
+      await conn.sendMessage(m.chat, {text: '> Error No Hay Archivos Que Eliminar'}, {quoted: m});
+    } else {
+      await conn.sendMessage(m.chat, {text: `> Archivos Eliminados:${filesDeleted}\n> AntiBug 2 Activado 🇦🇱`}, {quoted: m});
+    }
+  }  catch (err) {
+    console.error('> Error Verifique La Carpeta De Session:', err);
+    await conn.sendMessage(m.chat, {text: '> Verifique Que Sea Tal Cual La Carpeta De Session'}, {quoted: m});
+  }
+  await conn.sendMessage(m.chat, {text: `> AntiBug X Yallico 🇦🇱\n\n> Si El Bot No Responde Aún , Le Recomiendo Hacer Un Pequeño Spam De 3 Veces Ejecutando El Siguiente Comando: .s`}, {quoted: m});
+};
+handler.help = ['AntiBug2'];
+handler.tags = ['owner'];
+handler.command = /^(AntiBug2|dsowner|clearallsession)$/i;
+handler.rowner = true
+export default handler;
