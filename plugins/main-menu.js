@@ -48,10 +48,10 @@ let tags = {
 const defaultMenu = {
   before:  `*─ׄ─ׅ─⭒─ׄ─ׄ─⭒─ׅ─ׄ─⭒─ׄ─ׄ─⭒─ׄ─ׄ─*
 
-Hola *%name* Soy *Mafia*
+Hola *%name* Soy *Xiters*
 
 ╔══════ •『 𝑪𝑹𝑬𝑨𝑫𝑶𝑹 』
-║  🖥️ Mafia
+║  🖥️ Xiters
 ╚═════ ♢.✰.♢ ══════
 ╔══════ •『 𝑰𝑵𝑭𝑶-𝑩𝑶𝑻 』
 ║  👤 Cliente: %name
@@ -60,7 +60,7 @@ Hola *%name* Soy *Mafia*
 ╚═════ ♢.✰.♢ ═══════
 
 ╔══════ •『 𝑰𝑵𝑭𝑶-𝑼𝑺𝑬𝑹』
-║  🤖 Bot: ©Bot Mafia
+║  🤖 Bot: ©Bot Xiters
 ║  💎 Modo: Privado
 ║  💨 Baileys: Multi Device
 ║  🎩 Usuarios: %totalreg 
@@ -180,23 +180,23 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
    }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
-    let pp = 'https://files.catbox.moe/0mervt.jpeg'
-    let pp2 = 'https://files.catbox.moe/0mervt.jpeg'
-    let pp3 = 'https://files.catbox.moe/0mervt.jpeg'
-    let pp4 = 'https://files.catbox.moe/0mervt.jpeg'
-    let pp5 = 'https://files.catbox.moe/0mervt.jpeg'
-    let pp6 = 'https://files.catbox.moe/0mervt.jpeg'
-    let pp7 = 'https://files.catbox.moe/0mervt.jpeg'
-    let pp8 = 'https://files.catbox.moe/0mervt.jpeg'
-    let pp9 = 'https://files.catbox.moe/0mervt.jpeg'
-    let pp10 = 'https://files.catbox.moe/0mervt.jpeg'
-    let pp11 = 'https://files.catbox.moe/0mervt.jpeg'
-    let pp12 = 'https://files.catbox.moe/0mervt.jpeg'
-    let pp13 = 'https://files.catbox.moe/0mervt.jpeg'
-    let pp14 = 'https://files.catbox.moe/0mervt.jpeg'
-    let pp15 = 'https://files.catbox.moe/0mervt.jpeg'
-    let img = 'https://files.catbox.moe/0mervt.jpeg'
-    let img2 = 'https://files.catbox.moe/0mervt.jpeg'
+    let pp = 'https://qu.ax/tqNbW.jfif'
+    let pp2 = 'https://qu.ax/tqNbW.jfif'
+    let pp3 = 'https://qu.ax/tqNbW.jfif'
+    let pp4 = 'https://qu.ax/tqNbW.jfif'
+    let pp5 = 'https://qu.ax/tqNbW.jfif'
+    let pp6 = 'https://qu.ax/tqNbW.jfif'
+    let pp7 = 'https://qu.ax/tqNbW.jfif'
+    let pp8 = 'https://qu.ax/tqNbW.jfif'
+    let pp9 = 'https://qu.ax/tqNbW.jfif'
+    let pp10 = 'https://qu.ax/tqNbW.jfif'
+    let pp11 = 'https://qu.ax/tqNbW.jfif'
+    let pp12 = 'https://qu.ax/tqNbW.jfif'
+    let pp13 = 'https://qu.ax/tqNbW.jfif'
+    let pp14 = 'https://qu.ax/tqNbW.jfif'
+    let pp15 = 'https://qu.ax/tqNbW.jfif'
+    let img = 'https://qu.ax/tqNbW.jfif'
+    let img2 = 'https://qu.ax/tqNbW.jfif'
     await m.react('⭐')
    // await conn.sendMessage(m.chat, { video: { url: [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8, pp9, pp10, pp11, pp12, pp13, pp14, pp15].getRandom() }, gifPlayback: true, caption: text.trim(), mentions: [m.sender] }, { quoted: estilo })
     await conn.sendFile(m.chat, img, 'thumbnail.jpg', text.trim(), m, null, rcanal)
