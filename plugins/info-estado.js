@@ -18,7 +18,7 @@ let handler = async (m, { conn, isRowner }) => {
     const groupsIn = chats.filter(([id]) => id.endsWith('@g.us'));
     const used = process.memoryUsage();
     let Sisked = `╭─⬣「 *Estado* 」⬣\n`;
-    Sisked += `│ 👤 *Creador ∙* Xiters`;
+    Sisked += `│ 👤 *Creador ∙* @Kcha.Mobiles`;
     Sisked += `│ 💎 *Grupos Unidos ∙* ${groupsIn.length}\n`;
     Sisked += `│ 💨 *Chats Privados ∙* ${chats.length - groupsIn.length}\n`;
     Sisked += `│ 🪙 *Total De Chats ∙* ${chats.length}\n`;
