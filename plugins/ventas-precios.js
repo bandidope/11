@@ -1,12 +1,11 @@
-const handler = async (m, {conn}) => {
-  m.reply(global.Precios);
-};
-handler.command = /^(Precios)$/i;
-handler.tags =['ventas'] 
-handler.help = ['precios'] 
-export default handler;
-global.Precios = ` 
-🇵🇪 𝗣𝗲𝗿𝘂 
+let handler = async (m, { isPrems, conn }) => {
+    let time = global.db.data.users[m.sender].lastcofre + 86400000; // 86400000 24 Horas
+    if (new Date() - global.db.data.users[m.sender].lastcofre < 0) {
+        throw `[❗𝐈𝐍𝐅𝐎❗] 𝚈𝙰 𝚁𝙴𝙲𝙻𝙰𝙼𝙰𝚂𝚃𝙴 𝚃𝚄 𝙲𝙾𝙵𝚁𝙴\n𝚅𝙾𝙻𝚅𝙴 𝙴𝙽 *${msToTime(time - new Date())}* 𝙿𝙰𝚁𝙰 𝚅𝙾𝙻𝚅𝙴𝚁 𝙰 𝚁𝙴𝙲𝙻𝙰𝙼𝙰𝚁`;
+    }
+
+    let img = 'https://qu.ax/cqUYc.jpg'; 
+    let texto = `🇵🇪 𝗣𝗲𝗿𝘂 
 𝗕𝗼𝘁 𝗚𝗿𝘂𝗽𝗼 𝟭 : 4,50 soles
  - 𝗠𝗲𝗻𝘀𝘂𝗮𝗹 : 3,50 soles
 𝗕𝗼𝘁 𝗚𝗿𝘂𝗽𝗼 𝟮 : 8 soles
