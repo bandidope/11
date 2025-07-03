@@ -2,7 +2,7 @@ import { canLevelUp, xpRange } from '../lib/levelling.js'
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn }) => {
-let img = await (await fetch(`https://i.ibb.co/pjF8PxJJ/file.jpg`)).buffer()
+let img = await (await fetch(`https://qu.ax/cqUYc.jpg`)).buffer()
 let name = conn.getName(m.sender)
 let user = global.db.data.users[m.sender]
 if (!canLevelUp(user.level, user.exp, global.multiplier)) {
@@ -26,5 +26,5 @@ await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, rcanal)}}
 handler.help = ['levelup']
 handler.tags = ['rpg']
 handler.command = ['nivel', 'lvl', 'levelup', 'level'] 
-handler.register = true 
+handler.register = false 
 export default handler
