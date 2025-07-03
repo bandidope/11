@@ -3,7 +3,7 @@ const handler = async (m, {conn}) => {
 };
 handler.command = /^(Precios)$/i;
 handler.tags =['ventas'] 
-handler.help = ['Precios'] 
+handler.help = ['precios'] 
 export default handler;
 global.Precios = ` 
 🇵🇪 𝗣𝗲𝗿𝘂 
