@@ -16,7 +16,7 @@ let handler = async (m, { isPrems, conn }) => {
 - 𝗠𝗲𝗿𝗺𝗲𝗹𝗮𝗱𝗮 𝗫 : 
 
 𝗚𝗿𝘂𝗽𝗼 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 𝗗𝗲𝗹 𝗕𝗼𝘁 : 
-- 𝗟𝗶𝗻𝗸 :
+- 𝗟𝗶𝗻𝗸 : https://chat.whatsapp.com/IFkJ3LVePPC0FDGFuDul98
 `;
 
     const fkontak = {
