@@ -58,11 +58,11 @@ END:VCARD`
       tipo: 'texto'
 },
     29: {
-      mensaje: `🤍 𝗘𝗮𝘇𝘇𝘆 𝗫 𝗔𝘃𝗶𝘀𝗮 🤍\n\n- 𝗡𝘂𝗲𝘃𝗼 𝗔𝗱𝗺𝗶𝗻𝗶𝘀𝘁𝗿𝗮𝗱𝗼𝗿 :${participants.find(p => p.id === m.messageStubParameters[0])?.name || `@${m.messageStubParameters[0].split`@`[0]}`} \n- 𝗨𝘀𝘂𝗮𝗿𝗶𝗼 : ${usuario}\n- 𝗖𝗼𝗺𝗽𝗿𝗮𝗿 𝗕𝗼𝘁 : https://wa.link/rzvbnw`,
+      mensaje: `🤍 𝗘𝗮𝘇𝘇𝘆 𝗫 𝗔𝘃𝗶𝘀𝗮 🤍\n\n- 𝗡𝘂𝗲𝘃𝗼 𝗔𝗱𝗺𝗶𝗻𝗶𝘀𝘁𝗿𝗮𝗱𝗼𝗿 : ${participants.find(p => p.id === m.messageStubParameters[0])?.name || `@${m.messageStubParameters[0].split`@`[0]}`} \n- 𝗨𝘀𝘂𝗮𝗿𝗶𝗼 : ${usuario}\n- 𝗖𝗼𝗺𝗽𝗿𝗮𝗿 𝗕𝗼𝘁 : https://wa.link/rzvbnw`,
       tipo: 'texto'
 },
     30: {
-      mensaje: `🤍 𝗘𝗮𝘇𝘇𝘆 𝗫 𝗔𝘃𝗶𝘀𝗮 🤍\n\n- - 𝗠𝗲𝗻𝗼𝘀 𝟭 𝗔𝗱𝗺𝗶𝗻𝗶𝘀𝘁𝗿𝗮𝗱𝗼𝗿 :${participants.find(p => p.id === m.messageStubParameters[0])?.name || `@${m.messageStubParameters[0].split`@`[0]}`} \n- 𝗨𝘀𝘂𝗮𝗿𝗶𝗼 : ${usuario}\n- 𝗖𝗼𝗺𝗽𝗿𝗮𝗿 𝗕𝗼𝘁 : https://wa.link/rzvbnw`,
+      mensaje: `🤍 𝗘𝗮𝘇𝘇𝘆 𝗫 𝗔𝘃𝗶𝘀𝗮 🤍\n\n- 𝗠𝗲𝗻𝗼𝘀 𝟭 𝗔𝗱𝗺𝗶𝗻𝗶𝘀𝘁𝗿𝗮𝗱𝗼𝗿 : ${participants.find(p => p.id === m.messageStubParameters[0])?.name || `@${m.messageStubParameters[0].split`@`[0]}`} \n- 𝗨𝘀𝘂𝗮𝗿𝗶𝗼 : ${usuario}\n- 𝗖𝗼𝗺𝗽𝗿𝗮𝗿 𝗕𝗼𝘁 : https://wa.link/rzvbnw`,
       tipo: 'texto'
 }
 };
