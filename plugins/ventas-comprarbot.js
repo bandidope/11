@@ -1,7 +1,7 @@
 const handler = async (m, {conn}) => {
   m.reply(global.ComprarBot);
 };
-handler.command = /^(ComprarBot)$/i;
+handler.command = /^(Comprarbot)$/i;
 handler.tags =['ventas'] 
 handler.help = ['comprarBot'] 
 export default handler;
