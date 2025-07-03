@@ -83,7 +83,7 @@ const handler = async (m, { conn, args }) => {
 
     conn.sendMessage(m.chat, { text: message }, { quoted: m });
 };
-handler.help = ['inte4 < 4 vs 4 internp>']
+handler.help = ['inte4 < 4 vs 4 interna >']
 handler.tags = ['freefire']
 handler.command = /^(inte4)$/i;
 handler.botAdmin = false;
