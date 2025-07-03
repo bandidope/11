@@ -21,59 +21,51 @@ let Styles = (text, style = 1) => {
   return output.join('');
 };
 let tags = {
-  'ventas':  '🤍 _ᴇᴀᴢᴢʏ x ᴠᴇɴᴛᴀꜱ_ 🤍',
-  'freefire':  '🎮 _ꜰʀᴇᴇ ꜰɪʀᴇ_ 🎇',
-  'freefireeu':  '🤍 _ꜰʀᴇᴇ ꜰɪʀᴇ ᴇᴜ_ 🎮',
-  'main': '❗ _ɪɴꜰᴏ_ ❕',
-  'search': '🔎 _ꜱᴇᴀʀᴄʜ_ 🔍',
-  'game': '🕹️ _ɢᴀᴍᴇ_ 🎮',
-  'rpg': '🌐 _ʀᴘɢ_ 🥇',
-  'rg': '🎑 _ʀᴇɢɪꜱᴛʀᴏ_ 🎟️',
-  'sticker': '💟 _ꜱᴛɪᴄᴋᴇʀ_ 🏷️',
-  'img': '🖼️ _ɪᴍᴀɢᴇɴ_ 🎇',
-  'group': '👥 _ɢʀᴜᴘᴏ_ 📢',
+  'ventas':  '🤍 ᴇᴀᴢᴢʏ x ᴠᴇɴᴛᴀꜱ 🤍',
+  'freefire':  '🎮 ꜰʀᴇᴇ ꜰɪʀᴇ 🎇',
+  'freefireeu':  '🤍 ꜰʀᴇᴇ ꜰɪʀᴇ ᴇᴜ 🎮',
+  'main': '❗ ɪɴꜰᴏ ❕',
+  'search': '🔎 ꜱᴇᴀʀᴄʜ 🔍',
+  'game': '🕹️ ɢᴀᴍᴇ 🎮',
+  'rpg': '🌐 ʀᴘɢ 🥇',
+  'rg': '🎑 ʀᴇɢɪꜱᴛʀᴏ 🎟️',
+  'sticker': '💟 ꜱᴛɪᴄᴋᴇʀ 🏷️',
+  'img': '🖼️ ɪᴍᴀɢᴇɴ 🎇',
+  'group': '👥 ɢʀᴜᴘᴏ 📢',
 //  'logo': '_MAKER_',
-  'nable': '🎛️ _ᴏɴ / ᴏꜰꜰ_ 🔌', 
-  'premium': '💎 _ᴘʀᴇᴍɪᴜɴ_ 👑',
-  'downloader': '📥 _ᴅᴇꜱᴄᴀʀɢᴀꜱ_ 📤',
-  'tools': '🔧 _ᴛᴏᴏʟꜱ_ 🛠️',
-  'fun': '🎉 _ꜰᴜɴ_ 🎊',
-  'nsfw': '🔞 _ɴꜱꜰᴡ_ 📛', 
-  'cmd': '🧮 _ᴅᴀᴛᴀ ʙᴀꜱᴇ_ 🖥️',
-  'owner': '👤 _ᴏᴡɴᴇʀ_ 👁️', 
-  'audio': '📣 _ᴀᴜᴅɪᴏꜱ_ 🔊', 
-  'advanced': '🗝️ _ᴀᴅᴠᴀɴᴄᴇ_ 📍',
-  'anime': '🧧 _ᴀɴɪᴍᴇ_ 🎐',
+  'nable': '🎛️ ᴏɴ / ᴏꜰꜰ 🔌', 
+  'premium': '💎 ᴘʀᴇᴍɪᴜɴ 👑',
+  'downloader': '📥 ᴅᴇꜱᴄᴀʀɢᴀꜱ 📤',
+  'tools': '🔧 ᴛᴏᴏʟꜱ 🛠️',
+  'fun': '🎉 ꜰᴜɴ 🎊',
+  'nsfw': '🔞 ɴꜱꜰᴡ 📛', 
+  'cmd': '🧮 ᴅᴀᴛᴀ ʙᴀꜱᴇ 🖥️',
+  'owner': '👤 ᴏᴡɴᴇʀ 👁️', 
+  'audio': '📣 ᴀᴜᴅɪᴏꜱ 🔊', 
+  'advanced': '🗝️ ᴀᴅᴠᴀɴᴄᴇ 📍',
+  'anime': '🧧 ᴀɴɪᴍᴇ 🎐',
 }
 
 const defaultMenu = {
-  before:  `*─ׄ─ׅ─⭒─ׄ─ׄ─⭒─ׅ─ׄ─⭒─ׄ─ׄ─⭒─ׄ─ׄ─*
-
-Hola *%name* Soy *Eazzy*
-
-╔══════ •『 𝑪𝑹𝑬𝑨𝑫𝑶𝑹 』
-║  🖥️ @Kcha.Mobiles
-╚═════ ♢.✰.♢ ══════
-╔══════ •『 𝑰𝑵𝑭𝑶-𝑩𝑶𝑻 』
-║  👤 Cliente: %name
-║  ⭐ Exp: %exp
-║  ⚡ Nivel: %level
+  before:  `
+╔══════ •『 ɪɴꜰᴏ ᴇᴀᴢᴢʏ x 』
+║  🖥️ ᴄʀᴇᴀᴅᴏʀ : @Kcha.Mobiles
+║  👤 ᴄʟɪᴇɴᴛᴇ : %name
+║  ⭐ ᴇxᴘ : %exp
+║  ⚡ ɴɪᴠᴇʟ : %level
 ╚═════ ♢.✰.♢ ═══════
 
 ╔══════ •『 𝑰𝑵𝑭𝑶-𝑼𝑺𝑬𝑹』
-║  🤖 Bot: ©Eazzy X Bot
-║  💎 Modo: Privado
-║  💨 Baileys: Multi Device
-║  🎩 Usuarios: %totalreg 
+║  🤖 ʙᴏᴛ : ©Eazzy X Bot
+║  💎 ᴍᴏᴅᴏ : Privado
+║  💨 ʙᴀɪʟᴇʏꜱ : Multi Device
+║  🎩 ᴜꜱᴜᴀʀɪᴏꜱ : %totalreg 
 ╚═════ ♢.✰.♢ ════════
-
-*─ׄ─ׄ─⭒─ׄ─ׅ─ׄ⭒─ׄ─ׄ─⭒─ׄ─ׄ─⭒─ׄ─ׅ─*
  %readmore
-\t\t\t⚙️_*𝐋𝐈𝐒𝐓𝐀 𝐃𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎𝐒*_ 🚀
 `.trimStart(),
-  header: '*╭╍╍╍╍❖【 %category 】*',
-  body: '*┋💎›【 %cmd* %islimit %isPremium\n',
-  footer: '*╰╍╍╍╍❖•ೋ° °ೋ•❖╍╍╍╍╯*',
+  header: '╭╍╍╍╍❖【 %category 】',
+  body: '┋💎›【 %cmd %islimit %isPremium\n',
+  footer: '╰╍╍╍╍❖•ೋ° °ೋ•❖╍╍╍╍╯\n',
   after: `© ${textbot}`,
 }
 
