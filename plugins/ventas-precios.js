@@ -74,7 +74,7 @@ let handler = async (m, { isPrems, conn }) => {
 𝗕𝗼𝘁 𝗚𝗿𝘂𝗽𝗼 𝟯 : 500 Diamantes
 𝗕𝗼𝘁 𝗣𝗲𝗿𝘇𝗼𝗻𝗮𝗹𝗶𝘇𝗮𝗱𝗼 : 1000 Diamantes
 
-𝗘𝗮𝘇𝘇𝘆 𝗫 𝗖𝗼𝗻𝘁𝗮𝗰𝘁 : +51 936 994 155
+𝗘𝗮𝘇𝘇𝘆 𝗫 𝗖𝗼𝗻𝘁𝗮𝗰𝘁 : https://chat.whatsapp.com/IFkJ3LVePPC0FDGFuDul98
 
 𝗖𝗮𝗻𝗮𝗹 𝗥𝗲𝗳𝗲𝗿𝗲𝗻𝗰𝗶𝗮𝘀 : https://whatsapp.com/channel/0029Vb5oUp43LdQUVViHwc0m`;
 
