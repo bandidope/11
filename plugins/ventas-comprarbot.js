@@ -40,7 +40,7 @@ let handler = async (m, { isPrems, conn }) => {
 
 handler.command = ['comprarbot']; 
 handler.tags = ['ventas']
-handler.help = ['comprarBot'] 
+handler.help = ['comprarbot'] 
 handler.botAdmin = false;
 handler.admin = true;
 handler.group = true;
