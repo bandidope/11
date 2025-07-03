@@ -6,7 +6,7 @@ export async function before(m, { conn, participants, groupMetadata}) {
   try {
     if (!m.messageStubType ||!m.isGroup) return;
 
-    const imageLink = 'https://qu.ax/tqNbW.jfif';
+    const imageLink = 'https://qu.ax/cqUYc.jpg';
     const user = `@${m.messageStubParameters[0].split('@')[0]}`;
     const groupName = groupMetadata.subject;
     const groupDesc = groupMetadata.desc || '🔱 Grupo sin descripción';
