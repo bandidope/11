@@ -3,7 +3,7 @@ import { createHash} from 'crypto';
 
 let handler = async (m, { conn, text, usedPrefix, command}) => {
   const formatoRegistro = /^([^\s]+)\.(\d{1,3})$/i;
-  const fondo = 'https://qu.ax/tqNbW.jfif';
+  const fondo = 'https://qu.ax/cqUYc.jpg';
 
   if (!global.db.data.users) global.db.data.users = {};
   if (!global.db.data.users[m.sender]) global.db.data.users[m.sender] = {};
@@ -18,7 +18,7 @@ let handler = async (m, { conn, text, usedPrefix, command}) => {
     return m.reply(`🌷 *Formato incorrecto.*
 
 🌸 Usa: *${usedPrefix + command} Nombre.Edad*
-📌 Ejemplo: *${usedPrefix + command} Xiters.22*`);
+📌 Ejemplo: *${usedPrefix + command} Eazzy.22*`);
 }
 
   const [, nombre, edadStr] = text.match(formatoRegistro);
