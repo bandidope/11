@@ -1,11 +1,11 @@
 import fetch from 'node-fetch'
 
 export async function before(m, { conn }) {
-let name = `𝗘𝗮𝘇𝘇𝘆 𝗫 𝗕𝗼𝘁 ⚜️`
-let imagenes = ["https://qu.ax/tqNbW.jfif",
-"https://qu.ax/tqNbW.jfif",
-"https://qu.ax/tqNbW.jfif",
-"https://qu.ax/tqNbW.jfif",]
+let name = `Eazzy - Ultra 🤍`
+let imagenes = ["https://qu.ax/cqUYc.jpg",
+"https://qu.ax/cqUYc.jpg",
+"https://qu.ax/cqUYc.jpg",
+"https://qu.ax/cqUYc.jpg",]
 
 let icono = imagenes[Math.floor(Math.random() * imagenes.length)]
 
@@ -33,12 +33,11 @@ global.rcanal = {
 
 
 global.icono = [ 
-'https://qu.ax/tqNbW.jfif',
-'https://qu.ax/tqNbW.jfif',
-'https://qu.ax/tqNbW.jfif',
-'https://qu.ax/tqNbW.jfif',
-'https://qu.ax/tqNbW.jfif',
-'https://qu.ax/tqNbW.jfif',
+'https://qu.ax/cqUYc.jpg',
+'https://qu.ax/cqUYc.jpg',
+'https://qu.ax/cqUYc.jpg',
+'https://qu.ax/cqUYc.jpg',
+ 'https://qu.ax/cqUYc.jpg',
 ].getRandom()
 
         global.fkontak = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: { 'contactMessage': { 'displayName': wm, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${wm},;;;\nFN:${wm},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`, 'jpegThumbnail': fs.readFileSync('./storage/img/catalogo.png'), thumbnail: fs.readFileSync('./storage/img/catalogo.png'), sendEphemeral: true } } }
