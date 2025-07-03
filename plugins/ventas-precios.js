@@ -77,3 +77,30 @@ let handler = async (m, { isPrems, conn }) => {
 𝗘𝗮𝘇𝘇𝘆 𝗫 𝗖𝗼𝗻𝘁𝗮𝗰𝘁 : +51 936 994 155
 
 𝗖𝗮𝗻𝗮𝗹 𝗥𝗲𝗳𝗲𝗿𝗲𝗻𝗰𝗶𝗮𝘀 : https://whatsapp.com/channel/0029Vb5oUp43LdQUVViHwc0m`;
+
+    const fkontak = {
+        "key": {
+            "participants": "0@s.whatsapp.net",
+            "remoteJid": "status@broadcast",
+            "fromMe": false,
+            "id": "Halo"
+        },
+        "message": {
+            "contactMessage": {
+                "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
+            }
+        },
+        "participant": "0@s.whatsapp.net"
+    };
+
+    await conn.sendFile(m.chat, img, 'hades.jpg', texto, fkontak);
+    global.db.data.users[m.sender].lastcofre = new Date().getTime(); // Cambié a getTime para mayor claridad
+};
+
+handler.command = ['precio']; 
+handler.tags = ['ventas']
+handler.help = ['precio'] 
+handler.botAdmin = false;
+handler.admin = true;
+handler.group = true;
+export default handler;
