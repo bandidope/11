@@ -47,7 +47,7 @@ var handler = async function (m, conn, db) {
 
     // Lista de canales
     let canalIdM = ["120363419947391620@newsletter", "120363419947391620@newsletter"]
-    let canalNombreM = ["𝗫𝗶𝘁𝗲𝗿𝘀 𝗕𝗼𝘁 🔱", "𝗫𝗶𝘁𝗲𝗿𝘀 𝗕𝗼𝘁 🔱"]
+    let canalNombreM = ["Eazzy - Ultra 🤍", "Eazzy - Referencias 🤍"]
     
     async function getRandomChannel() {
         let randomIndex = Math.floor(Math.random() * canalIdM.length)
@@ -104,9 +104,9 @@ var handler = async function (m, conn, db) {
             externalAdReply: { 
                 showAdAttribution: true, 
                 title: "Texto del bot", 
-                body: '𝗫𝗶𝘁𝗲𝗿𝘀 𝗕𝗼𝘁 🔱', 
+                body: 'Eazzy - Ultra 🤍', 
                 previewType: "PHOTO", 
-                thumbnailUrl: "https://qu.ax/tqNbW.jfif", 
+                thumbnailUrl: "https://qu.ax/cqUYc.jpg", 
                 sourceUrl: "https://whatsapp.com/channel/0029Vb5oUp43LdQUVViHwc0m", 
                 mediaType: 1, 
                 renderLargerThumbnail: false 
