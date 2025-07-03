@@ -3,7 +3,7 @@ import { generateWAMessageFromContent} from '@whiskeysockets/baileys';
 const handler = async (m, { conn, text, participants}) => {
   try {
     const users = participants.map(u => conn.decodeJid(u.id));
-    const sello = '\n\n— 𝗫𝗶𝘁𝗲𝗿𝘀 𝗕𝗼𝘁 🔱';
+    const sello = '\n\nhttps://whatsapp.com/channel/0029Vb5oUp43LdQUVViHwc0m';
 
     const q = m.quoted? m.quoted: m;
     const c = m.quoted? await m.getQuotedObj(): m;
