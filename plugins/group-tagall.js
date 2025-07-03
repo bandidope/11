@@ -10,7 +10,7 @@ const handler = async (m, {isOwner, isAdmin, conn, text, participants, args, com
   }
   const pesan = args.join``;
   const oi = `${pesan}`;
-  let emot = `${pickRandom(['𝘔𝘦𝘨𝘢𝘵𝘳𝘰𝘯', '𝘔𝘦𝘨𝘢𝘵𝘳𝘰𝘯𝘉𝘰𝘵𝘗𝘳𝘰', '𝘔𝘦𝘨𝘢𝘵𝘳𝘰𝘯𝘉𝘰𝘵', '𝘔𝘦𝘨𝘢𝘵𝘳𝘰𝘯𝘗𝘳𝘰'])}`
+  let emot = `${pickRandom(['𝗘𝗮𝘇𝘇𝘆 𝗫'])}`
 function pickRandom(list) {
 return list[Math.floor(list.length * Math.random())]
 }
