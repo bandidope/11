@@ -6,9 +6,9 @@ async function handler(m, { conn}) {
   let ownerJid = numcreador + '@s.whatsapp.net';
 
   let name = await conn.getName(ownerJid) || 'Xiters Developer';
-  let about = (await conn.fetchStatus(ownerJid).catch(() => {}))?.status || '💻 Creador del bot *Xiters Bot 🔱* y amante del desarrollo.';
+  let about = (await conn.fetchStatus(ownerJid).catch(() => {}))?.status || '💻 Creador del bot *Eazzy X Bot 🔱* y amante del desarrollo.';
   let empresa = '✨ Software y Hosting ';
-  let imagen = 'https://qu.ax/tqNbW.jfif';
+  let imagen = 'https://qu.ax/cqUYc.jpg';
 
   const caption = `
 ╔═══🔱 *INFORMACIÓN DEL CREADOR* 🔱═══╗
