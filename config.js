@@ -42,7 +42,7 @@ global.miniurl = fs.readFileSync('./storage/img/miniurl.jpg')
 
 global.group = 'https://whatsapp.com/channel/0029Vb5oUp43LdQUVViHwc0m'
 global.canal = 'https://whatsapp.com/channel/0029Vb5oUp43LdQUVViHwc0m'
-global.insta = 'https://instagram.com/'
+global.insta = 'https://instagram.com/kcha.mobiles'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
