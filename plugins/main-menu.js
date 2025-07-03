@@ -7,10 +7,10 @@ const clockString = ms => {
   return [h, m, s].map(v => v.toString().padStart(2, '0')).join(':');
 };
 
-let imagen = "https://files.catbox.moe/c98335.mp4"; // Aquí está tu video
+let imagen = "https://qu.ax/cqUYc.jpg"; // Aquí está tu video
 
 const menuHeader = `
-╭─❒ 「 sᥲsᥙkᥱ ᑲ᥆𝗍 mძ 🌀 」
+╭─❒ 「 *Eazzy - Ultra 🤍* 」
 │ 👤 *Nombre:* %name
 │ 🎖 *Nivel:* %level | *XP:* %exp/%max
 │ 🔓 *Límite:* %limit | *Modo:* %mode
@@ -62,6 +62,8 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       });
 
     const emojis = {
+      "freefire": "🔥",
+      "freefireeu": "📀",
       anime: "🎭",
       info: "ℹ️",
       search: "🔎",
@@ -79,7 +81,6 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       nsfw: "🔞",
       "base de datos": "📀",
       audios: "🔊",
-      "free fire": "🔥",
       otros: "🪪"
     };
 
