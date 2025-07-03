@@ -1,11 +1,11 @@
-
-// Código Hecho Por Barboza
-let handler = async (m, { conn }) => {
-    // React con un emoji al mensaje
-    await m.react('⭐');
-
-    // Mensaje que se enviará
-    const message = `
+const handler = async (m, {conn}) => {
+  m.reply(global.Precios);
+};
+handler.command = /^(Precios)$/i;
+handler.tags =['ventas'] 
+handler.help = ['Precios'] 
+export default handler;
+global.Precios = ` 
 🇵🇪 𝗣𝗲𝗿𝘂 
 𝗕𝗼𝘁 𝗚𝗿𝘂𝗽𝗼 𝟭 : 4,50 soles
  - 𝗠𝗲𝗻𝘀𝘂𝗮𝗹 : 3,50 soles
@@ -78,19 +78,3 @@ let handler = async (m, { conn }) => {
 𝗘𝗮𝘇𝘇𝘆 𝗫 𝗖𝗼𝗻𝘁𝗮𝗰𝘁 : +51 936 994 155
 
 𝗖𝗮𝗻𝗮𝗹 𝗥𝗲𝗳𝗲𝗿𝗲𝗻𝗰𝗶𝗮𝘀 : https://whatsapp.com/channel/0029Vb5oUp43LdQUVViHwc0m`;
-
-    if (m.isGroup) {
-        // URL de la imagen
-        const imageUrl ='https://qu.ax/cqUYc.jpg'; // Cambia esta URL por la de la imagen que deseas enviar
-
-        // Envía la imagen con el mensaje
-        await conn.sendMessage(m.chat, { image: { url: imageUrl }, caption: message }, { mimetype: 'image/jpeg' });
-    }
-}
-
-handler.help = ['preciobot'];
-handler.tags = ['main'];
-handler.group = true;
-handler.command = ['preciobot', 'p2'];
-
-export default handler;
