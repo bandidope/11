@@ -3,7 +3,7 @@ const handler = async (m, {conn}) => {
 };
 handler.command = /^(ComprarBot)$/i;
 handler.tags =['ventas'] 
-handler.help = ['ComprarBot'] 
+handler.help = ['comprarBot'] 
 export default handler;
 global.ComprarBot = ` 
 🤍 𝗘𝗮𝘇𝘇𝘆 𝗫 𝗥𝗲𝘃𝗲𝗻𝗱𝗲𝗱𝗼𝗿𝗲𝘀 🤍
