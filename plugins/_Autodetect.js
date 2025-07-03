@@ -33,36 +33,36 @@ END:VCARD`
 
   const eventos = {
     21: {
-      mensaje: `🔱 *El Nombre Del Grupo Fue Modificado* 🔱\n👤 Usuario: ${usuario}\n🆕 Nuevo nombre: ${m.messageStubParameters[0]}`,
+      mensaje: `🤍 𝗘𝗮𝘇𝘇𝘆 𝗫 𝗔𝘃𝗶𝘀𝗮 🤍\n\n- 𝗡𝘂𝗲𝘃𝗼 𝗡𝗼𝗺𝗯𝗿𝗲 : ${m.messageStubParameters[0]}\n- 𝗨𝘀𝘂𝗮𝗿𝗶𝗼 : ${usuario}\n- 𝗖𝗼𝗺𝗽𝗿𝗮𝗿 𝗕𝗼𝘁 : https://wa.link/rzvbnw`,
       tipo: 'texto'
 },
     22: {
-      mensaje: `🖼️ *Foto de grupo actualizada* 🖼️\n👤 Usuario: ${usuario}`,
+      mensaje: `🤍 𝗘𝗮𝘇𝘇𝘆 𝗫 𝗔𝘃𝗶𝘀𝗮 🤍\n\n𝗡𝘂𝗲𝘃𝗼 𝗙𝗼𝘁𝗼 𝗗𝗲𝗹 𝗚𝗿𝘂𝗽𝗼\n- 𝗨𝘀𝘂𝗮𝗿𝗶𝗼 : ${usuario}\n- 𝗖𝗼𝗺𝗽𝗿𝗮𝗿 𝗕𝗼𝘁 : https://wa.link/rzvbnw`,
       tipo: 'imagen',
       imagen: img
 },
     23: {
-      mensaje: `🔗 *Nuevo enlace de grupo* 🔗\n👤 Usuario: ${usuario}`,
+      mensaje: `🤍 𝗘𝗮𝘇𝘇𝘆 𝗫 𝗔𝘃𝗶𝘀𝗮 🤍\n\n 𝗡𝘂𝗲𝘃𝗼 𝗘𝗻𝗹𝗮𝗰𝗲 𝗗𝗲𝗹 𝗚𝗿𝘂𝗽𝗼\n- 𝗨𝘀𝘂𝗮𝗿𝗶𝗼 : ${usuario}\n- 𝗖𝗼𝗺𝗽𝗿𝗮𝗿 𝗕𝗼𝘁 : https://wa.link/rzvbnw`,
       tipo: 'texto'
 },
     24: {
-      mensaje: `📝 *Descripción modificada* 📝\n👤 Usuario: ${usuario}\n💬 ${m.messageStubParameters?.[0] || 'Sin descripción'}`,
+      mensaje: `🤍 𝗘𝗮𝘇𝘇𝘆 𝗫 𝗔𝘃𝗶𝘀𝗮 🤍\n\n- 𝗨𝘀𝘂𝗮𝗿𝗶𝗼 : ${usuario}\n- 𝗖𝗼𝗺𝗽𝗿𝗮𝗿 𝗕𝗼𝘁 : https://wa.link/rzvbnw\n- 𝗡𝘂𝗲𝘃𝗮 𝗗𝗲𝘀𝗰𝗿𝗶𝗽𝗰𝗶𝗼𝗻 𝗗𝗲𝗹 𝗚𝗿𝘂𝗽𝗼 : ${m.messageStubParameters?.[0] || 'Sin descripción'}`,
       tipo: 'texto'
 },
     25: {
-      mensaje: `⚙️ *Ajustes del grupo cambiados* ⚙️\n👤 Usuario: ${usuario}\n🔧 Ahora: ${m.messageStubParameters[0] === 'on'? 'Solo admins': 'Todos los miembros'}`,
+      mensaje: `🤍 𝗘𝗮𝘇𝘇𝘆 𝗫 𝗔𝘃𝗶𝘀𝗮 🤍\n\n- 𝗨𝘀𝘂𝗮𝗿𝗶𝗼 : ${usuario}\n- 𝗖𝗼𝗺𝗽𝗿𝗮𝗿 𝗕𝗼𝘁 : https://wa.link/rzvbnw\n- 𝗔𝗷𝘂𝘀𝘁𝗲𝘀 𝗗𝗲𝗹 𝗚𝗿𝘂𝗽𝗼 : ${m.messageStubParameters[0] === 'on'? '𝗦𝗼𝗹𝗼 𝗔𝗱𝗺𝗶𝗻𝗶𝘀𝘁𝗿𝗮𝗱𝗼𝗿𝗲𝘀': '𝗦𝗼𝗹𝗼 𝗠𝗶𝗲𝗺𝗯𝗿𝗼𝘀'}`,
       tipo: 'texto'
 },
     26: {
-      mensaje: `🚪 *Estado del grupo cambiado* 🚪\n👤 Usuario: ${usuario}\n🔓 Estado: ${m.messageStubParameters[0] === 'on'? 'Cerrado 🔒': 'Abierto 🔓'}`,
+      mensaje: `🤍 𝗘𝗮𝘇𝘇𝘆 𝗫 𝗔𝘃𝗶𝘀𝗮 🤍\n\n- 𝗨𝘀𝘂𝗮𝗿𝗶𝗼 : ${usuario}\n- 𝗖𝗼𝗺𝗽𝗿𝗮𝗿 𝗕𝗼𝘁 : https://wa.link/rzvbnw\n- 𝗘𝘀𝘁𝗮𝗱𝗼 𝗗𝗲𝗹 𝗚𝗿𝘂𝗽𝗼 : ${m.messageStubParameters[0] === 'on'? '𝗚𝗿𝘂𝗽𝗼 𝗖𝗲𝗿𝗿𝗮𝗱𝗼 🔒': '𝗚𝗿𝘂𝗽𝗼 𝗔𝗯𝗶𝗲𝗿𝘁𝗼 🔓'}`,
       tipo: 'texto'
 },
     29: {
-      mensaje: `👑 *Se ha ascendido a admin* 👑\n📌 Nuevo admin: ${participants.find(p => p.id === m.messageStubParameters[0])?.name || `@${m.messageStubParameters[0].split`@`[0]}`}\n🛠️ Por: ${usuario}`,
+      mensaje: `🤍 𝗘𝗮𝘇𝘇𝘆 𝗫 𝗔𝘃𝗶𝘀𝗮 🤍\n\n- 𝗡𝘂𝗲𝘃𝗼 𝗔𝗱𝗺𝗶𝗻𝗶𝘀𝘁𝗿𝗮𝗱𝗼𝗿 :${participants.find(p => p.id === m.messageStubParameters[0])?.name || `@${m.messageStubParameters[0].split`@`[0]}`} \n- 𝗨𝘀𝘂𝗮𝗿𝗶𝗼 : ${usuario}\n- 𝗖𝗼𝗺𝗽𝗿𝗮𝗿 𝗕𝗼𝘁 : https://wa.link/rzvbnw`,
       tipo: 'texto'
 },
     30: {
-      mensaje: `⚠️ *Admin removido* ⚠️\n📌 Usuario: ${participants.find(p => p.id === m.messageStubParameters[0])?.name || `@${m.messageStubParameters[0].split`@`[0]}`}\n📉 Por: ${usuario}`,
+      mensaje: `🤍 𝗘𝗮𝘇𝘇𝘆 𝗫 𝗔𝘃𝗶𝘀𝗮 🤍\n\n- - 𝗠𝗲𝗻𝗼𝘀 𝟭 𝗔𝗱𝗺𝗶𝗻𝗶𝘀𝘁𝗿𝗮𝗱𝗼𝗿 :${participants.find(p => p.id === m.messageStubParameters[0])?.name || `@${m.messageStubParameters[0].split`@`[0]}`} \n- 𝗨𝘀𝘂𝗮𝗿𝗶𝗼 : ${usuario}\n- 𝗖𝗼𝗺𝗽𝗿𝗮𝗿 𝗕𝗼𝘁 : https://wa.link/rzvbnw`,
       tipo: 'texto'
 }
 };
