@@ -29,7 +29,7 @@ let handler = async (m, { conn, args, command, usedPrefix}) => {
     // Enviar imagen con detalles
     await conn.sendMessage(m.chat, {
       image: { url: cover},
-      caption: `╭─⬣「 *MÚSICA SPOTIFY* 」⬣
+      caption: `╭─⬣「 *MÚSICA EAZZY* 」⬣
 │ ≡◦ 🎵 *Título:* ${title}
 │ ≡◦ 👤 *Artista:* ${artist}
 │ ≡◦ ⏱️ *Duración:* ${duration}
