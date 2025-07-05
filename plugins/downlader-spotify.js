@@ -4,10 +4,10 @@ let handler = async (m, { conn, args, command, usedPrefix}) => {
   const text = args.join(" ");
   if (!text) {
     return m.reply(
-      `╭─⬣「 *Miku Bot* 」⬣
+      `╭─⬣「 *Eazzy Bot* 」⬣
 │ ≡◦ 🎧 *Uso correcto del comando:*
 │ ≡◦ ${usedPrefix + command} shakira soltera
-╰─⬣\n> © Barboza AI`
+╰─⬣\n> © Eazzy AI`
 );
 }
 
@@ -17,7 +17,7 @@ let handler = async (m, { conn, args, command, usedPrefix}) => {
 
     if (!json.status ||!json.result?.downloadUrl) {
       return m.reply(
-        `╭─⬣「 *Miku* 」⬣
+        `╭─⬣「 *Eazzy* 」⬣
 │ ≡◦ ❌ *No se encontró resultado para:* ${text}
 ╰─⬣`
 );
@@ -48,7 +48,7 @@ let handler = async (m, { conn, args, command, usedPrefix}) => {
 } catch (e) {
     console.error(e);
     return m.reply(
-      `╭─⬣「 *Miku AI* 」⬣
+      `╭─⬣「 *Eazzy AI* 」⬣
 │ ≡◦ ⚠️ *Error al procesar la solicitud.*
 │ ≡◦ Intenta nuevamente más tarde.
 ╰─⬣`
@@ -56,9 +56,9 @@ let handler = async (m, { conn, args, command, usedPrefix}) => {
 }
 };
 
-handler.help = ['spotify <nombre>'];
+handler.help = ['play <nombre>'];
 handler.tags = ['descargas'];
-handler.command = /^spotify$/i;
-handler.register = true;
+handler.command = /^play/i;
+handler.register = false;
 
 export default handler;
