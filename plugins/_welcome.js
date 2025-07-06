@@ -1,88 +1,42 @@
-// theBlack
-import { WAMessageStubType } from '@whiskeysockets/baileys'
-import fetch from 'node-fetch'
+import { WAMessageStubType} from "@whiskeysockets/baileys";
+import fetch from "node-fetch";
 
-export async function before(m, { conn, participants, groupMetadata }) {
-  if (!m.messageStubType || !m.isGroup) return !0;
+export async function before(m, { conn, participants, groupMetadata}) {
+  try {
+    if (!m.messageStubType ||!m.isGroup) return;
 
-  const getPais = (numero) => {
-    const paisesPorPrefijo = {
-      "1": "🇺🇸 Estados Unidos",
-      "34": "🇪🇸 España",
-      "52": "🇲🇽 México",
-      "54": "🇦🇷 Argentina",
-      "55": "🇧🇷 Brasil",
-      "56": "🇨🇱 Chile",
-      "57": "🇨🇴 Colombia",
-      "58": "🇻🇪 Venezuela",
-      "591": "🇧🇴 Bolivia",
-      "593": "🇪🇨 Ecuador",
-      "595": "🇵🇾 Paraguay",
-      "598": "🇺🇾 Uruguay",
-      "502": "🇬🇹 Guatemala",
-      "503": "🇸🇻 El Salvador",
-      "504": "🇭🇳 Honduras",
-      "505": "🇳🇮 Nicaragua",
-      "506": "🇨🇷 Costa Rica",
-      "507": "🇵🇦 Panamá",
-      "51": "🇵🇪 Perú",
-      "53": "🇨🇺 Cuba",
-      "91": "🇮🇳 India"
-    };
-    for (let i = 1; i <= 3; i++) {
-      const prefijo = numero.slice(0, i);
-      if (paisesPorPrefijo[prefijo]) return paisesPorPrefijo[prefijo];
-    }
-    return "🌎 Desconocido";
-  };
+    const imageLink = 'https://qu.ax/cqUYc.jpg';
+    const user = `@${m.messageStubParameters[0].split('@')[0]}`;
+    const groupName = groupMetadata.subject;
+    const groupDesc = groupMetadata.desc || '🔱 Grupo sin descripción';
+    const chat = global.db?.data?.chats?.[m.chat];
 
-  const numeroUsuario = m.messageStubParameters[0].split('@')[0];
-  const pais = getPais(numeroUsuario);
+    if (!chat ||!chat.bienvenida) return;
 
-  
-  const fecha = new Date().toLocaleDateString('es-PE', { timeZone: 'America/Lima' });
-  const hora = new Date().toLocaleTimeString('es-PE', { timeZone: 'America/Lima' });
+    const responseMap = {
+      [WAMessageStubType.GROUP_PARTICIPANT_ADD]: {
+        text: `🔱 𝑾𝒆𝒍𝒄𝒐𝒎𝒆, ${user}!\n💫 𝑬𝒔𝒕𝒂𝒔 𝒆𝒏 *${groupName}*\n📝 ${groupDesc}\n📌 𝑫𝒊𝒗𝒊𝒆́𝒓𝒕𝒆 𝒚 𝒄𝒖𝒊𝒅𝒂 𝒍𝒂𝒔 𝒓𝒆𝒈𝒍𝒂𝒔`,
+        mentions: [m.messageStubParameters[0]]
+},
+      [WAMessageStubType.GROUP_PARTICIPANT_LEAVE]: {
+        text: `🍃 *${user} ha salido del grupo.*\n🌟 ¡Te esperamos de vuelta en *${groupName}*!`,
+        mentions: [m.messageStubParameters[0]]
+},
+      [WAMessageStubType.GROUP_PARTICIPANT_REMOVE]: {
+        text: `❌ *${user} fue eliminado de* ${groupName}.\n📮 Recuerda: ¡el respeto es lo primero!`,
+        mentions: [m.messageStubParameters[0]]
+}
+};
 
-  const fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net"}
-
-  let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://files.catbox.moe/04u4qi.jpg');
-  let img = await (await fetch(`${pp}`)).buffer();
-  let chat = global.db.data.chats[m.chat];
-  let txt = ` ⟆⃝༉⃟⸙ ᯽𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎 ࣪˖ ִֶָ💖་`;
-  let txt1 = ` ⟆⃝༉⃟⸙ 𝐀 𝐃 𝐈 𝐎 𝐒 ͙🥺࿐`;
-  let groupSize = participants.length;
-  if (m.messageStubType == 27) groupSize++;
-  else if (m.messageStubType == 28 || m.messageStubType == 32) groupSize--;
-
-  if (chat.welcome && m.messageStubType == 27) {
-    let bienvenida = `           ↷❮ 💥 𝐖ᥱᥣᥴ᥆mᥱ ☄️  ❯*
-🪷 𝐔sᥙᥲrі᥆ ⑄▷@${m.messageStubParameters[0].split`@`[0]}
-🎓 𝐌іᥱmᑲr᥆s : ${groupSize} Miembros
-🧭 𝐏ᥲís : ${pais}
-📜 𝐅ᥱᥴһᥲ : ${fecha}
-🕊️ 𝐇᥆rᥲ : ${hora}    
-👻 𝐆rᥙ⍴᥆ : ${groupMetadata.subject}
-
-*${global.welcom1}*
-
-> 🧠 \`\`\`Usa #𝗺𝗲𝗻𝘂 para descubrir comandos poderosos 🔥.\`\`\``;
-
-    await conn.sendMini(m.chat, txt, dev, bienvenida, img, img, redes, fkontak);
-  }
-
-  if (chat.welcome && (m.messageStubType == 28 || m.messageStubType == 32)) {
-    let bye = `           *↷❮ 🎭 𝐀𝐃𝐈Ó𝐒 🎭 ❯*
-🎯 𝐔sᥙᥲrі᥆ ⑄▷@${m.messageStubParameters[0].split`@`[0]}*
-🧮 𝐌іᥱmᑲr᥆s : ${groupSize} Miembros
-🗺️ 𝐏ᥲís : ${pais}
-📆 𝐅ᥱᥴһᥲ : ${fecha}
-🕒 𝐇᥆rᥲ : ${hora}
-🏷️ 𝐆rᥙ⍴᥆ : ${groupMetadata.subject}
-
-*${global.welcom2}*
-
-> ✐ \`\`\`Usa #menu para ver los comandos disponibles.\`\`\``;
-
-    await conn.sendMini(m.chat, txt1, dev, bye, img, img, redes, fkontak);
-  }
+    const response = responseMap[m.messageStubType];
+    if (response) {
+      await conn.sendMessage(m.chat, {
+        image: { url: imageLink},
+        caption: response.text,
+        mentions: response.mentions
+});
+}
+} catch (err) {
+    console.error("🔱 Error en mensaje grupal de bienvenida/despedida:", err);
+}
 }
