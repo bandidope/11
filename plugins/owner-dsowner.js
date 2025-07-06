@@ -30,10 +30,10 @@ const handler = async (m, { conn, usedPrefix }) => {
     console.error('> Error Verifique La Carpeta De Session:', err);
     await conn.sendMessage(m.chat, {text: '> Verifique Que Sea Tal Cual La Carpeta De Session'}, {quoted: m});
   }
-  await conn.sendMessage(m.chat, {text: `> AntiBug X Yallico 🇦🇱\n\n> Si El Bot No Responde Aún , Le Recomiendo Hacer Un Pequeño Spam De 3 Veces Ejecutando El Siguiente Comando: .s`}, {quoted: m});
+  await conn.sendMessage(m.chat, {text: `> AntiBug X Eazzy 🇦🇱\n\n> Si El Bot No Responde Aún , Le Recomiendo Hacer Un Pequeño Spam De 3 Veces Ejecutando El Siguiente Comando: .s`}, {quoted: m});
 };
 handler.help = ['AntiBug2'];
 handler.tags = ['owner'];
 handler.command = /^(AntiBug2|dsowner|clearallsession)$/i;
-handler.rowner = true
+handler.rowner = false
 export default handler;
