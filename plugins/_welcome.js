@@ -15,15 +15,15 @@ export async function before(m, { conn, participants, groupMetadata}) {
 
     const responseMap = {
       [WAMessageStubType.GROUP_PARTICIPANT_ADD]: {
-        text: `🔱 𝑾𝒆𝒍𝒄𝒐𝒎𝒆, ${user}!\n💫 𝑬𝒔𝒕𝒂𝒔 𝒆𝒏 *${groupName}*\n📝 ${groupDesc}\n📌 𝑫𝒊𝒗𝒊𝒆́𝒓𝒕𝒆 𝒚 𝒄𝒖𝒊𝒅𝒂 𝒍𝒂𝒔 𝒓𝒆𝒈𝒍𝒂𝒔`,
+        text: `🤍 𝗘𝗮𝘇𝘇𝘆 𝗫 𝗔𝘃𝗶𝘀𝗮 🤍\n\n- 𝗡𝘂𝗲𝘃𝗼 𝗡𝗼𝗺𝗯𝗿𝗲 : ${groupName}\n- 𝗨𝘀𝘂𝗮𝗿𝗶𝗼 : ${user}`,
         mentions: [m.messageStubParameters[0]]
 },
       [WAMessageStubType.GROUP_PARTICIPANT_LEAVE]: {
-        text: `🍃 *${user} ha salido del grupo.*\n🌟 ¡Te esperamos de vuelta en *${groupName}*!`,
+        text: `🤍 𝗘𝗮𝘇𝘇𝘆 𝗫 𝗔𝘃𝗶𝘀𝗮 🤍\n\n- 𝗡𝘂𝗲𝘃𝗼 𝗡𝗼𝗺𝗯𝗿𝗲 : ${groupName}\n- 𝗨𝘀𝘂𝗮𝗿𝗶𝗼 : ${user}!`,
         mentions: [m.messageStubParameters[0]]
 },
       [WAMessageStubType.GROUP_PARTICIPANT_REMOVE]: {
-        text: `❌ *${user} fue eliminado de* ${groupName}.\n📮 Recuerda: ¡el respeto es lo primero!`,
+        text: `🤍 𝗘𝗮𝘇𝘇𝘆 𝗫 𝗔𝘃𝗶𝘀𝗮 🤍\n\n- 𝗡𝘂𝗲𝘃𝗼 𝗡𝗼𝗺𝗯𝗿𝗲 : ${groupName}\n- 𝗨𝘀𝘂𝗮𝗿𝗶𝗼 : ${user}`,
         mentions: [m.messageStubParameters[0]]
 }
 };
