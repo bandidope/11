@@ -19,7 +19,7 @@ global.prems = []
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-global.packname = `[ 𝐒𝐭𝐢𝐜𝐤𝐞𝐫 𝐁𝐲`
+global.packname = `𝐒𝐭𝐢𝐜𝐤𝐞𝐫 𝐁𝐲`
 global.author = '𝗘𝗮𝘇𝘇𝘆 𝗫 𝗕𝗼𝘁 🔱'
 global.stickpack = '𝗙𝗲𝗹𝗶𝗰𝗶𝗱𝗮𝗱𝗲𝘀 𝗛𝗶𝗰𝗶𝘀𝘁𝗲 𝗨𝗻 𝗦𝘁𝗶𝗰𝗸𝗲𝗿 𝗖𝗼𝗻 🔱'
 global.stickauth = '𝗘𝗮𝘇𝘇𝘆 𝗫 𝗕𝗼𝘁 🔱'
@@ -40,7 +40,7 @@ global.miniurl = fs.readFileSync('./storage/img/miniurl.jpg')
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-global.group = 'https://whatsapp.com/channel/0029Vb5oUp43LdQUVViHwc0m'
+global.group = 'https://chat.whatsapp.com/IFkJ3LVePPC0FDGFuDul98'
 global.canal = 'https://whatsapp.com/channel/0029Vb5oUp43LdQUVViHwc0m'
 global.insta = 'https://instagram.com/kcha.mobiles'
 
